@@ -16,5 +16,6 @@ def print_hi(name):
 if __name__ == '__main__':
     print_hi('Namashivaya Narayana Swami Narayan ')
     print(practices.fibonacci(10))
+    print(practices.is_palindrome("malayalam"))
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/

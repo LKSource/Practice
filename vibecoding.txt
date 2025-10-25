@@ -1,0 +1,80 @@
+Please build a detailed prompt for a web application using Django and python with below functionalities. keep it simple with minimal complexities. -
+. User Registration
+	. Sign-up / login (via email)
+	. profile creation (name, org, role, skills, etc.,)
+. Task Form
+	. Task description
+	. Task Status (Not Started, In Progress, Completed, Waiting for someone, Deferred)
+	. Priority (Low, Medium, High)
+	. Due Date
+. Task List
+	. Task Description
+	. Task Status
+	. Priority
+	. Due Date
+. Task Edit
+	. Task description
+	. Task Status (Not Started, In Progress, Completed, Waiting for someone, Deferred)
+	. Priority (Low, Medium, High)
+	. Due Date
+. Task Delete
+	. Task Description
+	. Task Status
+	. Priority
+	. Due Date
+. Navigation between task list, task form, task edit, task delete
+
+implement this web application
+
+settings -> alternate enable
+
+-------------------------------------------
+
+Local
+spec-kit.zip uvx --from .\spec-kit\ specify init <project_name>
+
+pip install uv 
+
+uvx --from git+https://github.com/github/spec-kit.git specify init infy-demo5
+copilot
+ps
+
+spec-it
+/specify i am looking to build web application using Django and python with below functionalities, with profession looking UIs and better navigation between all the pages -
+. User Registration
+	. Sign-up / login (via email)
+	. profile creation (name, org, role, skills, etc.,)
+. User Login
+	. Navigation to task form on successful login
+. Task Form - to create the tasks
+	. Task description text box
+	. Task Status dropdown (Not Started, In Progress, Completed, Waiting for someone, Deferred)
+	. Priority dropdown (Low, Medium, High)
+	. Due Date - date field
+	. Navigation to the task list page on successful creation.
+. Task List Page With table of below columns - to list the tasks with option to view every task in task details view
+	. Task Description
+	. Task Status
+	. Priority
+	. Due Date
+	. Check Box Option to select for deletion
+	. Confirmation button to delete the selected tasks
+. Task Edit page with data filled from task list - to edit the selected task from the task list
+	. Task description text box
+	. Task Status dropdown (Not Started, In Progress, Completed, Waiting for someone, Deferred)
+	. Priority dropdown (Low, Medium, High)
+	. Due Date - date field
+
+/plan
+/tasks
+/implement
+
+python -m venv .venv 
+.\.venv\Scripts\Activate.ps1 
+pip install -r requirements.txt
+python manage.py check
+python manage.py migrate
+python manage.py runserver
+pytest -q
+
+python manage.py runserver	

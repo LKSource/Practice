@@ -17,5 +17,10 @@ if __name__ == '__main__':
     print_hi('Namashivaya Narayana Swami Narayan ')
     print(practices.fibonacci(10))
     print(practices.is_palindrome("malayalam"))
+    ls = ["aabccddd","aaabccddd","aaabccddd","baab","aa","ab","aabbccddeeff","abcdeffedcba","aaabccba"]
+    #print(set(s))
+    for s in ls:
+        result = practices.superReducedString(s)
+        print(result)    
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/

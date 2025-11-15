@@ -20,3 +20,15 @@ def is_palindrome(s):
         if s[i] != s[-(i + 1)]:
             return False
     return True
+
+def superReducedString(s):
+    # Write your code here
+    for char in set(s):
+        double_char = char * 2
+        while double_char in s:
+            s = s.replace(double_char, "")
+            s = superReducedString(s)
+    if s == "" :
+        return 'Empty String'
+    else:
+        return s

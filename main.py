@@ -30,6 +30,10 @@ if __name__ == '__main__':
     for index, s in enumerate(ls, start=3):
         result = practices.superReducedString(s)
         table.add_row(str(index), "superReducedString", str(result))
+    i = index + 1
+    table.add_row(str(i), "camelcase", str(practices.camelcase('saveChangesInTheEditor')))
+    i = i + 1
+    table.add_row(str(i), "minimumNumber", str(practices.minimumNumber(5,'2bbbb')))
 
     console.print(table)
 

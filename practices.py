@@ -32,3 +32,27 @@ def superReducedString(s):
         return 'Empty String'
     else:
         return s
+
+def camelcase(s):
+    # Write your code here
+    count = sum(1 for char in s if char.isupper())
+    return count + 1
+
+def minimumNumber(n, password):
+    # Return the minimum number of characters to make the password strong
+    numbers = "0123456789"
+    lower_case = "abcdefghijklmnopqrstuvwxyz"
+    upper_case = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    special_characters = "!@#$%^&*()-+"
+
+    has_number = any(char in numbers for char in password)
+    has_lower = any(char in lower_case for char in password)
+    has_upper = any(char in upper_case for char in password)
+    has_special = any(char in special_characters for char in password)   
+ 
+    s = 4 - (has_number + has_lower + has_upper + has_special)
+
+    if s + len(password) >= 6:
+        return(s)
+    else:
+        return(6 - len(password))

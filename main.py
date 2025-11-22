@@ -34,6 +34,8 @@ if __name__ == '__main__':
     table.add_row(str(i), "camelcase", str(practices.camelcase('saveChangesInTheEditor')))
     i = i + 1
     table.add_row(str(i), "minimumNumber", str(practices.minimumNumber(5,'2bbbb')))
+    i = i + 1
+    table.add_row(str(i), "isGreekAlphabet", str(practices.isGreekAlphabet('ALPHA')))
 
     console.print(table)
 

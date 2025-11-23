@@ -38,7 +38,8 @@ if __name__ == '__main__':
     table.add_row(str(i), "isGreekAlphabet", str(practices.isGreekAlphabet('ALPHA')))
     i = i + 1
     table.add_row(str(i), "alternate", str(practices.alternate('asdcbsdcagfsdbgdfanfghbsfdab')))
-
+    i = i + 1
+    table.add_row(str(i), "hackerrankInString", str(practices.hackerrankInString('hacakaeararanaka')), str(practices.hackerrankInString('hhhackkerbanker')))
     console.print(table)
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/

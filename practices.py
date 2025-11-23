@@ -113,3 +113,22 @@ def alternate(s):
         #print(s)
     return max_length
         # Write your code here
+
+def hackerrankInString(s):
+    # Write your code here
+    ref = "hackerrank"
+    target = []
+    t = []
+
+    i = 0
+    for char in ref:
+        while i < len(s) and char != s[i]:
+            i += 1
+        if i < len(s) :
+            if char == s[i]:
+                #print(i)                
+                t.append(i)
+                target.append(char)
+                i += 1 
+    #print(target)                
+    return 'YES' if ref == ''.join(target) else 'NO'

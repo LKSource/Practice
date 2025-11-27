@@ -42,6 +42,8 @@ if __name__ == '__main__':
     table.add_row(str(i), "hackerrankInString", str(practices.hackerrankInString('hacakaeararanaka')), str(practices.hackerrankInString('hhhackkerbanker')))
     i = i + 1
     table.add_row(str(i), "caesarCipher", "middle-Outz", str(practices.caesarCipher("middle-Outz", 2)))
+    i = i + 1
+    table.add_row(str(i), "marsExploration", "SOSSPSSQSSOR", str(practices.marsExploration("SOSSPSSQSSOR")))
     
     console.print(table)
 

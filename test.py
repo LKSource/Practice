@@ -1,23 +1,13 @@
-import string
-
-def caesarCipher(s, k):
+def marsExploration(s):
+    r = "SOS"
     # Write your code here
-    b = string.ascii_lowercase
-    r = []
-    
-    for char in s:
-        if char in string.ascii_lowercase:
-            index = (string.ascii_lowercase.index(char) + k +1) % 26
-            if index == 0:
-                index = 26
-            r.append(b[index-1])
-        elif char in string.ascii_uppercase:
-            index = (string.ascii_uppercase.index(char) + k +1) % 26
-            if index == 0:
-                index = 26
-            r.append(b[index-1].upper())
-        else:
-            r.append(char)
-    return(''.join(r))
+    if len(s) % 3 != 0:
+        return 0
+    count = 0
+    for i in range(0,len(s)//3):
+        s1 = s[i*3:i*3+3]
+        count += sum(1 for a, b in zip(s1, r) if a != b)
+    return count
 
-print(caesarCipher("okffng-Owvb", 2))
+print("SOSSPSSQSSOR")
+print(marsExploration("SOSSPSSQSSOR"))

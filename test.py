@@ -1,48 +1,23 @@
-def hackerrankInString(s):
+import string
+
+def caesarCipher(s, k):
     # Write your code here
-    ref = "hackerrank"
-    target = []
-    t = []
-
-    i = 0
-    for char in ref:
-        while i < len(s) and char != s[i]:
-            i += 1
-        if i < len(s) :
-            if char == s[i]:
-                #print(i)                
-                t.append(i)
-                target.append(char)
-                i += 1 
-    #print(target)                
-    return 'YES' if ref == ''.join(target) else 'NO'
-
-
-'''
+    b = string.ascii_lowercase
+    r = []
+    
     for char in s:
-        if char in ref:
-            if char not in target:
-                target.append(char)
-    print(target)
-'''
-#print(hackerrankInString("hereiamstackerrank"))
-#print(hackerrankInString("hackerworld"))
+        if char in string.ascii_lowercase:
+            index = (string.ascii_lowercase.index(char) + k +1) % 26
+            if index == 0:
+                index = 26
+            r.append(b[index-1])
+        elif char in string.ascii_uppercase:
+            index = (string.ascii_uppercase.index(char) + k +1) % 26
+            if index == 0:
+                index = 26
+            r.append(b[index-1].upper())
+        else:
+            r.append(char)
+    return(''.join(r))
 
-test = []
-test.append('knarrekcah')
-test.append('hackerrank')
-test.append('hackeronek')
-test.append('abcdefghijklmnopqrstuvwxyz')
-test.append('rhackerank')
-test.append('ahankercka')
-test.append('hacakaeararanaka')
-test.append('hhhhaaaaackkkkerrrrrrrrank')
-test.append('crackerhackerknar')
-test.append('hhhackkerbanker')
-#test = []
-#test.append('rhackerank')
-#test.append('hhhackkerbanker')
-for t in test:
-    print(t,hackerrankInString(t))
-
-
+print(caesarCipher("okffng-Owvb", 2))

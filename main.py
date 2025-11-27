@@ -40,6 +40,9 @@ if __name__ == '__main__':
     table.add_row(str(i), "alternate", str(practices.alternate('asdcbsdcagfsdbgdfanfghbsfdab')))
     i = i + 1
     table.add_row(str(i), "hackerrankInString", str(practices.hackerrankInString('hacakaeararanaka')), str(practices.hackerrankInString('hhhackkerbanker')))
+    i = i + 1
+    table.add_row(str(i), "caesarCipher", "middle-Outz", str(practices.caesarCipher("middle-Outz", 2)))
+    
     console.print(table)
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/

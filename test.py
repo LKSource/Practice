@@ -1,13 +1,18 @@
-def marsExploration(s):
-    r = "SOS"
+def quickSort(arr):
     # Write your code here
-    if len(s) % 3 != 0:
-        return 0
-    count = 0
-    for i in range(0,len(s)//3):
-        s1 = s[i*3:i*3+3]
-        count += sum(1 for a, b in zip(s1, r) if a != b)
-    return count
+    left = []
+    right = []
+    equal = []
 
-print("SOSSPSSQSSOR")
-print(marsExploration("SOSSPSSQSSOR"))
+    for i in range(0,len(arr)):
+        if arr[i] < arr[0]:
+            left.append(arr[i])
+        elif arr[i] > arr[0]:
+            right.append(arr[i])
+        else:
+            equal.append(arr[i])
+    #print(left, equal, right)
+    return left + equal + right
+
+arr =[4, 5, 3, 7, 2]
+print(quickSort(arr))

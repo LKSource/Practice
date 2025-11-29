@@ -44,7 +44,8 @@ if __name__ == '__main__':
     table.add_row(str(i), "caesarCipher", "middle-Outz", str(practices.caesarCipher("middle-Outz", 2)))
     i = i + 1
     table.add_row(str(i), "marsExploration", "SOSSPSSQSSOR", str(practices.marsExploration("SOSSPSSQSSOR")))
-    
+    i = i + 1
+    table.add_row(str(i), "quickSort", "[4, 5, 3, 7, 2]", str(practices.quickSort([4, 5, 3, 7, 2])))    
     console.print(table)
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/

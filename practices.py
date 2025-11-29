@@ -212,3 +212,19 @@ def weightedUniformStrings(s, queries):
     r = ['Yes' if q in pw else 'No' for q in queries]
 
     return (r)
+
+def separateNumbers(s):
+    # Write your code here
+    r = "NO"
+
+    for i in range(1, len(s)//2+1):
+        st = s[0:i]
+        num = int(st)
+        for j in range(1, len(s)//i):
+            num += 1
+            st += str(num)
+            if st == s:
+                r = "YES " + s[0:i]
+                break
+    #print(r)
+    return r

@@ -1,106 +1,54 @@
-import string
-from itertools import groupby
-
-def weightedUniformStrings1(s, queries):
+def separateNumbers1(s):
     # Write your code here
-    ref = string.ascii_lowercase
-    result = []
-    s1 = set(list(s))
-    d = {}
-    r = ["No"] * len(queries)
+    r = "NO"
 
-#    for c in s1:
-#        d.update({c:s.count(c)})
+    for i in range(1, len(s)//2+1):
+        st = s[0:i]
+        num = int(st)
+        for j in range(1, len(s)//i):
+            num += 1
+            st += str(num)
+            if st == s:
+                r = "YES " + s[0:i]
+                break
+    #print(r)
+    return r
 
-    d = {char: len(list(group)) for char, group in groupby(s)}
-    #print(d)
-    
-    for key, value in d.items():
-        weight = ref.index(key) + 1
-        for i in range(1, value + 1):
-            result.append(weight * i)
-
-    ref_map = {char: ref.index(char) + 1 for char in set(s)}
-    result = []
-
-    if s:
-        result.append(ref_map[s[0]])
-        for i, char in enumerate(s[1:], start=1):
-            current_value = ref_map[char]
-            if char == s[i-1]:
-                result.append(result[-1] + current_value)
-            else:
-                result.append(current_value)
-
-    comm = list(set(queries).intersection(result))
-    indx = []
-    for t in comm:
-        indx = indx + [index for index, value in enumerate(queries) if value == t]
-    
-    for t in indx:
-        r[t] = "Yes"
-    print(ref_map, queries, result, indx, r)
-    return (r)
-#    print(s1, d, result)
-    #return (['Yes' if q in result else 'No' for q in queries])
-    #print(result)
-
-def weightedUniformStrings(s, queries):
+def separateNumbers(s):
     # Write your code here
+    t = True
+    r = "NO"
     count = 1
-    ref = string.ascii_lowercase
-    result = []
-    r = ["No"] * len(queries)
 
-    result.append(ref.index(s[0]) + 1)
+    for i in range(1, len(s)//2):
+        for j in range(i+1, len(s)//2 +1):
+            first = s[0:i]
+            second = s[i:j]
+            #print(first,second)
+            if int(second) - int(first) == 1:
+                num = int(second)
+                k = j
+                valid = True
+                #print(first,second)
+                while k < len(s):
+                    next_num_str = str(num + 1)
+                    next_len = len(next_num_str)
+                    #print(next_num_str,s[k:k+next_len])
+                    if s[k:k+next_len] == next_num_str:
+                        num += 1
+                        k += next_len
+                    else:
+                        valid = False
+                        break
+                if valid and k == len(s):
+                    r = "YES " + first
+                    t = False
+                    break
+    return r
 
-    for i in range(1,len(s)):
-        if s[i] == s[i-1]:
-            result.append(result[-1] + ref.index(s[i]) + 1)
-        else:
-            result.append(ref.index(s[i]) + 1)
-
-    #print(result,queries,list(set(queries).intersection(result)))
-    comm = list(set(queries).intersection(result))
-    indx = []
-    for t in comm:
-        indx = indx + [index for index, value in enumerate(queries) if value == t]
-    
-    for t in indx:
-        r[t] = "Yes"
-
-#    for c in range(0,len(queries)):
-#        if queries[c] in result:
-#            r[c] = "Yes"
-        #weight = ref.index(s[i]) + 1
-        #result.append(weight * count)
-    return (r)
-    #return (['Yes' if q in result else 'No' for q in queries])
-    #print(result)
-
-def weightedUniformStrings2(s, queries):
-    # Write your code here
-    pw = set()
-    cw = 0
-
-    for i in range(len(s)):
-        char = s[i]
-        w = ord(char) - ord('a') + 1
-        if i == 0 or char != s[i - 1]:
-            cw = w  
-        else:
-            cw += w
-        pw.add(cw)
-    
-    r = ['Yes' if q in pw else 'No' for q in queries]
-
-#    for c in range(0,len(queries)):
-#        if queries[c] in result:
-#            r[c] = "Yes"
-        #weight = ref.index(s[i]) + 1
-        #result.append(weight * count)
-    return (r)
-    #return (['Yes' if q in result else 'No' for q in queries])
-    #print(result)
-
-print(weightedUniformStrings2('abbcccddddab', [1, 7, 5, 4, 15, 4, 15,1]))  
+d = ['1234','11121314','99100','99910001001','7891011','9899100','999100010001']
+d = ['1234','91011','99100','101103','010203','13','1']
+d = ['99910001001','7891011','9899100','999100010001']
+#d = ['7891011']
+for num in d:
+    print(separateNumbers1(num))  

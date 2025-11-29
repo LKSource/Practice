@@ -1,18 +1,16 @@
-def quickSort(arr):
+import string
+def pangrams(s):
     # Write your code here
-    left = []
-    right = []
-    equal = []
+    count = 0
+    ref = string.ascii_lowercase
+    s = s.lower()
+    for char in ref:
+        if char in s:
+            count += 1
+    if count == 26:       
+        return 'pangram'
+    else:
+        return 'not pangram'
 
-    for i in range(0,len(arr)):
-        if arr[i] < arr[0]:
-            left.append(arr[i])
-        elif arr[i] > arr[0]:
-            right.append(arr[i])
-        else:
-            equal.append(arr[i])
-    #print(left, equal, right)
-    return left + equal + right
-
-arr =[4, 5, 3, 7, 2]
-print(quickSort(arr))
+arr ="We promptly judged antique ivory buckles for the next prize"
+print(pangrams(arr))

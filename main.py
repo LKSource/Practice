@@ -46,6 +46,9 @@ if __name__ == '__main__':
     table.add_row(str(i), "marsExploration", "SOSSPSSQSSOR", str(practices.marsExploration("SOSSPSSQSSOR")))
     i = i + 1
     table.add_row(str(i), "quickSort", "[4, 5, 3, 7, 2]", str(practices.quickSort([4, 5, 3, 7, 2])))    
+    i = i + 1
+    table.add_row(str(i), "pangrams", "We promptly judged antique ivory buckles for the next prize", str(practices.pangrams("We promptly judged antique ivory buckles for the next prize")))    
+
     console.print(table)
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/

@@ -1,16 +1,16 @@
-def funnyString(s):
+def countingSort(arr):
     # Write your code here
-    r = s[::-1]
-    result = True
-    for i in range(1, len(s)):
-        if abs(ord(s[i]) - ord(s[i-1])) != abs(ord(r[i]) - ord(r[i-1])):
-            result = False
-            break
+    a = [0] * (max(arr) + 1)
+    for num in arr:
+        a[num] += 1
+    r = []
+    for index, count in enumerate(a):
+        print(f"Index: {index}, Count: {count}")
+        for _ in range(count):
+            r.append(index)
+    return r
 
-    return 'Funny' if result else 'Not Funny'
-
-
-d = ['acxz','bcxz']
+d = [1,1,3,2,1]
 #d = ['7891011']
-for num in d:
-    print(funnyString(num))  
+
+print(countingSort(d))  

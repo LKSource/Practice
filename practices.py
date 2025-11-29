@@ -239,3 +239,14 @@ def funnyString(s):
             break
 
     return 'Funny' if result else 'Not Funny'
+
+def countingSort(arr):
+    # Write your code here
+    a = [0] * (max(arr) + 1)
+    for num in arr:
+        a[num] += 1
+    r = []
+    for index, count in enumerate(a):
+        for _ in range(count):
+            r.append(index)
+    return r

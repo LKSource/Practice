@@ -52,6 +52,8 @@ if __name__ == '__main__':
     table.add_row(str(i), "weightedUniformStrings", "abbcccddddab [1, 7, 5, 4, 15, 4, 15,1]", str(practices.weightedUniformStrings('abbcccddddab', [1, 7, 5, 4, 15, 4, 15,1])))    
     i = i + 1
     table.add_row(str(i), "separateNumbers", "['99910001001','7891011','9899100','999100010001']", str(practices.separateNumbers('99910001001')))    
+    i = i + 1
+    table.add_row(str(i), "funnyString", "['acxz','bcxz']", str(practices.funnyString('acxz')))    
 
 
     console.print(table)

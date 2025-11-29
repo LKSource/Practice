@@ -194,3 +194,21 @@ def pangrams(s):
         return 'pangram'
     else:
         return 'not pangram'
+    
+def weightedUniformStrings(s, queries):
+    # Write your code here
+    pw = set()
+    cw = 0
+
+    for i in range(len(s)):
+        char = s[i]
+        w = ord(char) - ord('a') + 1
+        if i == 0 or char != s[i - 1]:
+            cw = w  
+        else:
+            cw += w
+        pw.add(cw)
+    
+    r = ['Yes' if q in pw else 'No' for q in queries]
+
+    return (r)

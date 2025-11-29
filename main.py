@@ -48,6 +48,8 @@ if __name__ == '__main__':
     table.add_row(str(i), "quickSort", "[4, 5, 3, 7, 2]", str(practices.quickSort([4, 5, 3, 7, 2])))    
     i = i + 1
     table.add_row(str(i), "pangrams", "We promptly judged antique ivory buckles for the next prize", str(practices.pangrams("We promptly judged antique ivory buckles for the next prize")))    
+    i = i + 1
+    table.add_row(str(i), "weightedUniformStrings", "abbcccddddab [1, 7, 5, 4, 15, 4, 15,1]", str(practices.weightedUniformStrings('abbcccddddab', [1, 7, 5, 4, 15, 4, 15,1])))    
 
     console.print(table)
 

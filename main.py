@@ -58,6 +58,8 @@ if __name__ == '__main__':
     table.add_row(str(i), "countingSort", "[1,1,3,2,1]", str(practices.countingSort([1,1,3,2,1])))
     i = i + 1
     table.add_row(str(i), "gemstones", "['abcdde', 'baccd', 'eeabgc']", str(practices.gemstones(['abcdde', 'baccd', 'eeabgc'])))
+    i = i + 1
+    table.add_row(str(i), "alternatingCharacters", "['AAAA',,'AABBAABB','ABABABAA','ABBABBAA']", str(practices.alternatingCharacters('ABABABAA')))
         
 
     console.print(table)

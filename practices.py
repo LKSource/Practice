@@ -259,3 +259,14 @@ def gemstones(arr):
         ref = ''.join([c for c in ref if c in s])
     #print(ref)
     return len(ref)
+
+def alternatingCharacters(s):
+    # Write your code here
+    count = 0
+    if s.count('A') == len(s) or s.count('B') == len(s):
+        count = len(s) - 1
+    else:
+        for i in range(1,len(s)):
+            if s[i] == s[i-1]:
+                count += 1 
+    return count

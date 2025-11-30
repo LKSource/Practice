@@ -1,12 +1,23 @@
 import string
-def gemstones(arr):
+def alternatingCharacters(s):
     # Write your code here
-    ref = string.ascii_lowercase
+    count = 0
+    if s.count('A') == len(s) or s.count('B') == len(s):
+        count = len(s) - 1
+    else:
+        for i in range(1,len(s)):
+            if s[i] == s[i-1]:
+                count += 1 
+    return count
+'''    elif 'AB' in s or 'BA' in s:
+        count = len(s.replace('AB',''))
+        if count > len(s.replace('BA','')):
+            count = len(s.replace('BA',''))
+'''
 
-    for s in arr:
-        ref = ''.join([c for c in ref if c in s])
-    #print(ref)
-    return len(ref)
 
-arr = ['abcdde', 'baccd', 'eeabgc']
-print(gemstones(arr))  
+arr = ['AAAA','BBBBB','ABABABAB','BABABA','AAABBB','AAABBBAABB','AABBAABB','ABABABAA','ABBABBAA']
+#arr = ['ABBABBAA']
+
+for s in arr:
+    print(alternatingCharacters(s))  

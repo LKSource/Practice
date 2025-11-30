@@ -60,6 +60,8 @@ if __name__ == '__main__':
     table.add_row(str(i), "gemstones", "['abcdde', 'baccd', 'eeabgc']", str(practices.gemstones(['abcdde', 'baccd', 'eeabgc'])))
     i = i + 1
     table.add_row(str(i), "alternatingCharacters", "['AAAA',,'AABBAABB','ABABABAA','ABBABBAA']", str(practices.alternatingCharacters('ABABABAA')))
+    i = i + 1
+    table.add_row(str(i), "beautifulBinaryString", "0100101010", str(practices.beautifulBinaryString('0100101010')))
         
 
     console.print(table)

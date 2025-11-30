@@ -270,3 +270,8 @@ def alternatingCharacters(s):
             if s[i] == s[i-1]:
                 count += 1 
     return count
+
+def beautifulBinaryString(b):
+    # Write your code here
+    count = b.count('010')
+    return count

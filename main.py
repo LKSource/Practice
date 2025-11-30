@@ -55,7 +55,10 @@ if __name__ == '__main__':
     i = i + 1
     table.add_row(str(i), "funnyString", "['acxz','bcxz']", str(practices.funnyString('acxz')))    
     i = i + 1
-    table.add_row(str(i), "countingSort", "[1,1,3,2,1]", str(practices.countingSort([1,1,3,2,1])))    
+    table.add_row(str(i), "countingSort", "[1,1,3,2,1]", str(practices.countingSort([1,1,3,2,1])))
+    i = i + 1
+    table.add_row(str(i), "gemstones", "['abcdde', 'baccd', 'eeabgc']", str(practices.gemstones(['abcdde', 'baccd', 'eeabgc'])))
+        
 
     console.print(table)
 

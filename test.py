@@ -1,16 +1,12 @@
-def countingSort(arr):
+import string
+def gemstones(arr):
     # Write your code here
-    a = [0] * (max(arr) + 1)
-    for num in arr:
-        a[num] += 1
-    r = []
-    for index, count in enumerate(a):
-        print(f"Index: {index}, Count: {count}")
-        for _ in range(count):
-            r.append(index)
-    return r
+    ref = string.ascii_lowercase
 
-d = [1,1,3,2,1]
-#d = ['7891011']
+    for s in arr:
+        ref = ''.join([c for c in ref if c in s])
+    #print(ref)
+    return len(ref)
 
-print(countingSort(d))  
+arr = ['abcdde', 'baccd', 'eeabgc']
+print(gemstones(arr))  

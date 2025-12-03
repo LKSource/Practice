@@ -1,22 +1,11 @@
-import string
-def closestNumbers(arr):
+def findMedian(arr):
     # Write your code here
     arr.sort()
-    min_diff = float('inf')
-    result = []
-    for i in range(len(arr) - 1):
-        diff = arr[i + 1] -  arr[i]
-        if diff < min_diff:
-            min_diff = diff
-            result = [arr[i], arr[i + 1]]
-        elif diff == min_diff:
-            result.append(arr[i])
-            result.append(arr[i + 1])
-    return result
+    return arr[len(arr)//2]
 
-arr = [5,4,3,2]
+arr = [0,1,2,4,6,5,3]
 
-print(closestNumbers(arr))
+print(findMedian(arr))
 
 #for s in arr:
 #    print(alternatingCharacters(s))  

@@ -290,3 +290,8 @@ def closestNumbers(arr):
             result.append(arr[i])
             result.append(arr[i + 1])
     return result
+
+def findMedian(arr):
+    # Write your code here
+    arr.sort()
+    return arr[len(arr)//2]

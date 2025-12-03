@@ -1,13 +1,22 @@
 import string
-def beautifulBinaryString(b):
+def closestNumbers(arr):
     # Write your code here
-    count = b.count('010')
-    return count
+    arr.sort()
+    min_diff = float('inf')
+    result = []
+    for i in range(len(arr) - 1):
+        diff = arr[i + 1] -  arr[i]
+        if diff < min_diff:
+            min_diff = diff
+            result = [arr[i], arr[i + 1]]
+        elif diff == min_diff:
+            result.append(arr[i])
+            result.append(arr[i + 1])
+    return result
 
-arr = ['AAAA','BBBBB','ABABABAB','BABABA','AAABBB','AAABBBAABB','AABBAABB','ABABABAA','ABBABBAA']
-arr = '0100101010'
+arr = [5,4,3,2]
 
-print(beautifulBinaryString(arr))
+print(closestNumbers(arr))
 
 #for s in arr:
 #    print(alternatingCharacters(s))  

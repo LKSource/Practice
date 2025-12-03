@@ -62,7 +62,8 @@ if __name__ == '__main__':
     table.add_row(str(i), "alternatingCharacters", "['AAAA',,'AABBAABB','ABABABAA','ABBABBAA']", str(practices.alternatingCharacters('ABABABAA')))
     i = i + 1
     table.add_row(str(i), "beautifulBinaryString", "0100101010", str(practices.beautifulBinaryString('0100101010')))
-        
+    i = i + 1
+    table.add_row(str(i), "closestNumbers", "[5,4,3,2]", str(practices.closestNumbers([5,4,3,2])))
 
     console.print(table)
 

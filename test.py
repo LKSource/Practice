@@ -1,11 +1,15 @@
-def findMedian(arr):
+def theLoveLetterMystery(s):
     # Write your code here
-    arr.sort()
-    return arr[len(arr)//2]
+    count = 0
+    n = len(s)
+    for i in range(n//2):
+        if s[i] != s[n-i-1]:
+            count += abs(ord(s[i]) - ord(s[n-i-1]))
+    return count
 
-arr = [0,1,2,4,6,5,3]
-
-print(findMedian(arr))
+st = ['abc','abcba','abcd','cba']
+for s in st:
+    print(theLoveLetterMystery(s))
 
 #for s in arr:
 #    print(alternatingCharacters(s))  

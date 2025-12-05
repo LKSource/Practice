@@ -66,6 +66,8 @@ if __name__ == '__main__':
     table.add_row(str(i), "closestNumbers", "[5,4,3,2]", str(practices.closestNumbers([5,4,3,2])))
     i = i + 1
     table.add_row(str(i), "findMedian", "[0,1,2,4,6,5,3]", str(practices.findMedian([0,1,2,4,6,5,3])))
+    i = i + 1
+    table.add_row(str(i), "theLoveLetterMystery", "abcd", str(practices.theLoveLetterMystery("abcd")))
 
     console.print(table)
 

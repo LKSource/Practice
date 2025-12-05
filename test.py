@@ -1,13 +1,18 @@
-def makingAnagrams(s1, s2):
+def gameOfThrones(s):
     # Write your code here
     count = 0
-    for char in set(s1):
-        count += max(0, s1.count(char) - s2.count(char))
-    for char in set(s2):
-        count += max(0, s2.count(char) - s1.count(char))
-    return count
+    for char in set(s):
+        count += max(0, s.count(char) % 2)
+    if count > 1:
+        return "NO"
+    elif len(s) % 2 == 0 and count == 0:
+        return "YES"
+    elif len(s) % 2 == 1 and count == 1:
+        return "YES"
+    else:     
+        return "NO"
 
-print(makingAnagrams('abc','amnop'))
-print(makingAnagrams('cde','abc'))
+print(gameOfThrones('cdcdcdcdeeeef'))
+#print(makingAnagrams('cde','abc'))
 #for s in arr:
 #    print(alternatingCharacters(s))  

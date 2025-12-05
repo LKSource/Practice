@@ -1,15 +1,19 @@
-def theLoveLetterMystery(s):
+def palindromeIndex(s):
     # Write your code here
-    count = 0
+    if s == s[::-1]:
+        return -1
     n = len(s)
     for i in range(n//2):
         if s[i] != s[n-i-1]:
-            count += abs(ord(s[i]) - ord(s[n-i-1]))
-    return count
+            new_string = s[:i] + s[i + 1:]
+            if new_string == new_string[::-1]:
+                return i
+            else:
+                return n - i - 1
 
-st = ['abc','abcba','abcd','cba']
+st = ['aaab','baa','aaa']
 for s in st:
-    print(theLoveLetterMystery(s))
+    print(palindromeIndex(s))
 
 #for s in arr:
 #    print(alternatingCharacters(s))  

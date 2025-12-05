@@ -78,6 +78,8 @@ if __name__ == '__main__':
     table.add_row(str(i), "gameOfThrones", "cdcdcdcdeeeef", str(practices.gameOfThrones('cdcdcdcdeeeef')))
     i = i + 1
     table.add_row(str(i), "twoStrings", "'hello','world'", str(practices.twoStrings('hello','world')))
+    i = i + 1
+    table.add_row(str(i), "stringConstruction", "abab", str(practices.stringConstruction('abab')))
 
     console.print(table)
 

@@ -1,11 +1,5 @@
-def twoStrings(s1, s2):
+def stringConstruction(s):
     # Write your code here
-    for char in set(s1):
-        if char in s2:
-            return "YES"
-    return "NO"
+    return len(set(s))
 
-print(twoStrings('hello','world'))
-#print(makingAnagrams('cde','abc'))
-#for s in arr:
-#    print(alternatingCharacters(s))  
+print(stringConstruction('abab'))

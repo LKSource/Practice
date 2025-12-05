@@ -359,3 +359,7 @@ def twoStrings(s1, s2):
         if char in s2:
             return "YES"
     return "NO"
+
+def stringConstruction(s):
+    # Write your code here
+    return len(set(s))

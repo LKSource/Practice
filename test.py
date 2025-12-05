@@ -1,19 +1,18 @@
-def palindromeIndex(s):
+def anagram(s):
     # Write your code here
-    if s == s[::-1]:
+    if len(s) % 2 != 0:
         return -1
-    n = len(s)
-    for i in range(n//2):
-        if s[i] != s[n-i-1]:
-            new_string = s[:i] + s[i + 1:]
-            if new_string == new_string[::-1]:
-                return i
-            else:
-                return n - i - 1
+    mid = len(s) // 2
+    s1 = s[:mid]
+    s2 = s[mid:]
+    count = 0
+    for char in set(s1):
+        count += max(0, s1.count(char) - s2.count(char))
+    return count
 
-st = ['aaab','baa','aaa']
+st = ['aaabbb','ab','abc','mnop','xyyx','xaxbbbxx']
 for s in st:
-    print(palindromeIndex(s))
+    print(anagram(s))
 
 #for s in arr:
 #    print(alternatingCharacters(s))  

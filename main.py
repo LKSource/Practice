@@ -70,6 +70,8 @@ if __name__ == '__main__':
     table.add_row(str(i), "theLoveLetterMystery", "abcd", str(practices.theLoveLetterMystery("abcd")))
     i = i + 1
     table.add_row(str(i), "palindromeIndex", "aaab", str(practices.palindromeIndex("aaab")))
+    i = i + 1
+    table.add_row(str(i), "anagram", "aaabbb", str(practices.anagram("aaabbb")))
 
     console.print(table)
 

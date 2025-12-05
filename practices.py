@@ -352,3 +352,10 @@ def gameOfThrones(s):
         return "YES"
     else:     
         return "NO"
+
+def twoStrings(s1, s2):
+    # Write your code here
+    for char in set(s1):
+        if char in s2:
+            return "YES"
+    return "NO"

@@ -1,18 +1,11 @@
-def gameOfThrones(s):
+def twoStrings(s1, s2):
     # Write your code here
-    count = 0
-    for char in set(s):
-        count += max(0, s.count(char) % 2)
-    if count > 1:
-        return "NO"
-    elif len(s) % 2 == 0 and count == 0:
-        return "YES"
-    elif len(s) % 2 == 1 and count == 1:
-        return "YES"
-    else:     
-        return "NO"
+    for char in set(s1):
+        if char in s2:
+            return "YES"
+    return "NO"
 
-print(gameOfThrones('cdcdcdcdeeeef'))
+print(twoStrings('hello','world'))
 #print(makingAnagrams('cde','abc'))
 #for s in arr:
 #    print(alternatingCharacters(s))  

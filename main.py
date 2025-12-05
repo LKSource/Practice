@@ -76,6 +76,8 @@ if __name__ == '__main__':
     table.add_row(str(i), "makingAnagrams", "'abc','amnop'", str(practices.makingAnagrams('abc','amnop')))
     i = i + 1
     table.add_row(str(i), "gameOfThrones", "cdcdcdcdeeeef", str(practices.gameOfThrones('cdcdcdcdeeeef')))
+    i = i + 1
+    table.add_row(str(i), "twoStrings", "'hello','world'", str(practices.twoStrings('hello','world')))
 
     console.print(table)
 

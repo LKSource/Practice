@@ -14,6 +14,9 @@ def similarStrings(n, s, queries):
 #        print(ss)
         count = 0
         for sub in ss:
+            if sub == substr:
+                count += 1
+                continue
             check = True
             for i in range(0,len(substr)):
                 for j in range(i+1, len(substr)):

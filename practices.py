@@ -400,3 +400,48 @@ def knightlOnAChessboard(n):
         arr.append(results)    
         #print()
     return arr
+
+def same_pattern(x, y):
+    if len(x) != len(y):
+        return False
+    map_x = {}
+    map_y = {}
+    for idx in range(len(x)):
+        if map_x.setdefault(x[idx], idx) != map_y.setdefault(y[idx], idx):
+            return False
+    return True
+
+def similarStrings(n, s, queries):
+    # Write your code here
+    c = []
+    for query in queries:
+        l = query[0]
+        r = query[1]
+        substr = s[l-1:r]
+        if len(substr) == 1:
+            c.append(len(s))
+            continue
+        #print(substr)
+        ss = [s[i:i+r-l+1] for i in range(len(s)) if i+r-l+1 <= len(s)]
+#        print(substr)
+#        print(ss)
+        count = 0
+        for sub in ss:
+            if sub == substr:
+                count += 1
+                continue
+
+            if len(set(sub)) != len(set(substr)):
+                continue
+
+            check = True    
+            if not same_pattern(substr, sub):
+                check = False
+
+            if check:
+                count += 1
+        c.append(count)
+        #print(c)
+
+        #print(ss)
+    return c 

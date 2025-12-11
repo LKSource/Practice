@@ -465,3 +465,24 @@ def missingNumbers(arr, brr):
     r = list(set(r))
     r.sort()
     return r
+
+def beautifulPairs(A, B):
+    
+    count = 0
+    ref = []
+
+    for i in range(len(A)):
+        check = False
+        for j in range(len(B)):
+            if A[i] == B[j]:
+                if j not in ref:
+                    check = True
+                    ref.append(j)
+                    count += 1
+            if check:
+                break
+    if count == len(A):
+        count -= 1
+    else:
+        count += 1
+    return count

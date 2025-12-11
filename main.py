@@ -88,6 +88,8 @@ if __name__ == '__main__':
     table.add_row(str(i), "icecreamParlor", "4,[1, 4, 5, 3, 2]", str(practices.icecreamParlor(4,[1, 4, 5, 3, 2])))
     i = i + 1
     table.add_row(str(i), "missingNumbers", "[203, 204, 205, 206, 207, 208, 203, 204, 205, 206],[203, 204, 204, 205, 206, 207, 205, 208, 203, 206, 205, 206, 204]", str(practices.missingNumbers([203, 204, 205, 206, 207, 208, 203, 204, 205, 206],[203, 204, 204, 205, 206, 207, 205, 208, 203, 206, 205, 206, 204])))
+    i = i + 1
+    table.add_row(str(i), "beautifulPairs", "[3, 5, 7, 11, 5, 8],[5, 7, 11, 10, 5, 8]", str(practices.beautifulPairs([3, 5, 7, 11, 5, 8],[5, 7, 11, 10, 5, 8])))
 
     console.print(table)
 

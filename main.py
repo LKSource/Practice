@@ -84,6 +84,8 @@ if __name__ == '__main__':
     table.add_row(str(i), "knightlOnAChessboard", "5", str(practices.knightlOnAChessboard(5)))
     i = i + 1
     table.add_row(str(i), "similarStrings", "8,'giggabaj',[1,1],[1,2],[1,3],[2,4]", str(practices.similarStrings(8,'giggabaj',[[1,1],[1,2],[1,3],[2,4]])))
+    i = i + 1
+    table.add_row(str(i), "icecreamParlor", "4,[1, 4, 5, 3, 2]", str(practices.icecreamParlor(4,[1, 4, 5, 3, 2])))
 
     console.print(table)
 

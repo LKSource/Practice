@@ -454,3 +454,14 @@ def icecreamParlor(m, arr):
             return (cost_map[complement] + 1, i + 1)
         cost_map[cost] = i
     return None
+
+def missingNumbers(arr, brr):
+    r = []
+    for i in brr:
+        if i not in arr:
+            r.append(i)
+        else:
+            arr.remove(i)
+    r = list(set(r))
+    r.sort()
+    return r

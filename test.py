@@ -1,13 +1,19 @@
-def balancedSums(arr):
-    # Write your code here
-    total = sum(arr)
-    left_sum = 0
-    for num in arr:
-        if left_sum == total - left_sum - num:
-            return "YES"
-        left_sum += num
-    return "NO"
+import itertools
 
-g = [[1,2,3],[1,1,4,1],[2,0,0,0],[0,0,2,0],[1,2,3,3],[0,0,0,2]]
+def minimumAbsoluteDifference(arr):
+    # Write your code here
+    arr.sort()  
+    min_diff = float('inf')
+    
+    for i in range(1, len(arr)):
+        diff = arr[i] - arr[i - 1]  
+        if diff < min_diff:
+            min_diff = diff
+        if min_diff == 0:  
+            break
+    
+    return min_diff
+
+g = [[3,-7,0],[-59,-36 ,-13, 1, -53, -92, -2, -96, -54, 75]]
 for i in g:
-    print(balancedSums(i))
+    print(minimumAbsoluteDifference(i))

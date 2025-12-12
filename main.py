@@ -92,6 +92,9 @@ if __name__ == '__main__':
     table.add_row(str(i), "beautifulPairs", "[3, 5, 7, 11, 5, 8],[5, 7, 11, 10, 5, 8]", str(practices.beautifulPairs([3, 5, 7, 11, 5, 8],[5, 7, 11, 10, 5, 8])))
     i = i + 1
     table.add_row(str(i), "balancedSums", "[1,2,3,3]", str(practices.balancedSums([1,2,3,3])))
+    i = i + 1
+    table.add_row(str(i), "minimumAbsoluteDifference", "[-59,-36 ,-13, 1, -53, -92, -2, -96, -54, 75]", str(practices.minimumAbsoluteDifference([-59,-36 ,-13, 1, -53, -92, -2, -96, -54, 75])))
+
 
     console.print(table)
 

@@ -98,6 +98,8 @@ if __name__ == '__main__':
     table.add_row(str(i), "marcsCakewalk", "[7, 4, 9, 6]", str(practices.marcsCakewalk([7, 4, 9, 6])))
     i = i + 1
     table.add_row(str(i), "gridChallenge", "['ebacd', 'fghij', 'olman', 'trpqs', 'xywuv']", str(practices.gridChallenge(['ebacd', 'fghij', 'olman', 'trpqs', 'xywuv'])))
+    i = i + 1
+    table.add_row(str(i), "luckBalance", "3,[[5, 1], [2, 1], [1, 1], [8, 1], [10, 0], [5, 0]]", str(practices.luckBalance(3,[[5, 1], [2, 1], [1, 1], [8, 1], [10, 0], [5, 0]])))
 
     console.print(table)
 

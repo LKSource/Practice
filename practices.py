@@ -539,3 +539,17 @@ def gridChallenge(grid):
             check = False
             break
     return "YES" if check else "NO"
+
+def luckBalance(k, contests):
+    # Write your code here
+#    print(grid)
+    im = []
+    ni = []
+    for i in contests:
+        if i[1]: im.append(i[0]) 
+        else: ni.append(i[0])
+    im.sort(reverse=True)
+    result = sum(im[0:k])+sum(ni)-(sum(im)-sum(im[0:k]))
+#    print(sum(im[0:k]),sum(ni),result)
+#    print(im, ni) 
+    return result

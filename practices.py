@@ -598,3 +598,19 @@ def decentNumber(n):
         result = ['5']*t*3
         result += ['3']*f*5
     return ''.join(result)
+
+def toys(w):
+    # Write your code here
+    #print(n)
+    w.sort()
+    p = 0
+    count = 0
+    while p < len(w):
+        r = w[p]+4
+        t = []
+        for j in range(p,len(w)):
+            if w[j] <= r:
+                t.append(w[j])
+        count += 1
+        p += len(t) 
+    return count

@@ -520,3 +520,22 @@ def marcsCakewalk(calorie):
     for i in range(len(calorie)):
         r += 2**i * calorie[i]
     return r
+
+def gridChallenge(grid):
+    # Write your code here
+#    print(grid)
+    for i in range(len(grid)):
+        g = list(grid[i])
+        g.sort()
+#        print(g)
+        grid[i] = g
+        #print(grid[i].split())
+    check = True
+    tl = list(map(list, zip(*grid)))
+    for t in tl:
+        t1 = t.copy()
+        t1.sort()
+        if t != t1:
+            check = False
+            break
+    return "YES" if check else "NO"

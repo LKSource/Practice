@@ -96,7 +96,8 @@ if __name__ == '__main__':
     table.add_row(str(i), "minimumAbsoluteDifference", "[-59,-36 ,-13, 1, -53, -92, -2, -96, -54, 75]", str(practices.minimumAbsoluteDifference([-59,-36 ,-13, 1, -53, -92, -2, -96, -54, 75])))
     i = i + 1
     table.add_row(str(i), "marcsCakewalk", "[7, 4, 9, 6]", str(practices.marcsCakewalk([7, 4, 9, 6])))
-
+    i = i + 1
+    table.add_row(str(i), "gridChallenge", "['ebacd', 'fghij', 'olman', 'trpqs', 'xywuv']", str(practices.gridChallenge(['ebacd', 'fghij', 'olman', 'trpqs', 'xywuv'])))
 
     console.print(table)
 

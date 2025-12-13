@@ -512,3 +512,11 @@ def minimumAbsoluteDifference(arr):
             break
     
     return min_diff
+
+def marcsCakewalk(calorie):
+    # Write your code here
+    calorie.sort(reverse=True)
+    r = 0
+    for i in range(len(calorie)):
+        r += 2**i * calorie[i]
+    return r

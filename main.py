@@ -94,6 +94,8 @@ if __name__ == '__main__':
     table.add_row(str(i), "balancedSums", "[1,2,3,3]", str(practices.balancedSums([1,2,3,3])))
     i = i + 1
     table.add_row(str(i), "minimumAbsoluteDifference", "[-59,-36 ,-13, 1, -53, -92, -2, -96, -54, 75]", str(practices.minimumAbsoluteDifference([-59,-36 ,-13, 1, -53, -92, -2, -96, -54, 75])))
+    i = i + 1
+    table.add_row(str(i), "marcsCakewalk", "[7, 4, 9, 6]", str(practices.marcsCakewalk([7, 4, 9, 6])))
 
 
     console.print(table)

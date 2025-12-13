@@ -553,3 +553,22 @@ def luckBalance(k, contests):
 #    print(sum(im[0:k]),sum(ni),result)
 #    print(im, ni) 
     return result
+
+from itertools import combinations
+def maximumPerimeterTriangle(sticks):
+    # Write your code here
+    r = float('-inf')
+    c = combinations(sticks, 3)
+    c = list(c)
+    #print(c)
+    l = []
+    for i in c:
+        i = list(i)
+        i.sort()
+        if i[0]+i[1] == i[2]:
+            continue
+        if i[0]+i[1] > i[2] and sum(i) > r:
+            r = sum(i)
+            l = i
+#
+    return [-1] if not l else l

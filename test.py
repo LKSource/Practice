@@ -1,20 +1,23 @@
-import itertools
+from itertools import combinations
 
-def luckBalance(k, contests):
+def maximumPerimeterTriangle(sticks):
     # Write your code here
-#    print(grid)
-    im = []
-    ni = []
-    for i in contests:
-        if i[1]: im.append(i[0]) 
-        else: ni.append(i[0])
-    im.sort(reverse=True)
-    result = sum(im[0:k])+sum(ni)-(sum(im)-sum(im[0:k]))
-#    print(sum(im[0:k]),sum(ni),result)
-#    print(im, ni) 
-    return result
+    r = float('-inf')
+    c = combinations(sticks, 3)
+    c = list(c)
+    #print(c)
+    l = []
+    for i in c:
+        i = list(i)
+        i.sort()
+        if i[0]+i[1] == i[2]:
+            continue
+        if i[0]+i[1] > i[2] and sum(i) > r:
+            r = sum(i)
+            l = i
+#
+    return [-1] if not l else l
 
-n = 6
-k = 3
-contests = [[5, 1], [2, 1], [1, 1], [8, 1], [10, 0], [5, 0]]
-print(luckBalance(k,contests))
+s = [1,1,1,3,3],[1,2,3],[1,1,1,2,3,5]
+for i in s:
+    print(maximumPerimeterTriangle(i))

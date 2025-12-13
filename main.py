@@ -102,6 +102,8 @@ if __name__ == '__main__':
     table.add_row(str(i), "luckBalance", "3,[[5, 1], [2, 1], [1, 1], [8, 1], [10, 0], [5, 0]]", str(practices.luckBalance(3,[[5, 1], [2, 1], [1, 1], [8, 1], [10, 0], [5, 0]])))
     i = i + 1
     table.add_row(str(i), "maximumPerimeterTriangle", "[1,1,1,2,3,5]", str(practices.maximumPerimeterTriangle([1,1,1,2,3,5])))
+    i = i + 1
+    table.add_row(str(i), "decentNumber", "11", str(practices.decentNumber(11)))
 
     console.print(table)
 

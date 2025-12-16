@@ -614,3 +614,17 @@ def toys(w):
         count += 1
         p += len(t) 
     return count
+
+def largestPermutation(k, arr):
+    # Write your code here
+    n = len(arr)
+    pos = {v: i for i, v in enumerate(arr)}
+    for i in range(n):
+        if k == 0:
+            break
+        if arr[i] != n - i:
+            j = pos[n - i]
+            arr[i], arr[j] = arr[j], arr[i]
+            pos[arr[i]], pos[arr[j]] = i, j
+            k -= 1
+    return arr

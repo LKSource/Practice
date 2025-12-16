@@ -1,23 +1,24 @@
 from itertools import combinations
 
-def toys(w):
+def largestPermutation(k, arr):
     # Write your code here
-    #print(n)
-    w.sort()
-    p = 0
-    count = 0
-    while p < len(w):
-        r = w[p]+4
-        t = []
-        for j in range(p,len(w)):
-            if w[j] <= r:
-                t.append(w[j])
-        count += 1
-        p += len(t) 
-    return count
+    n = len(arr)
+    pos = {v: i for i, v in enumerate(arr)}
+    for i in range(n):
+        if k == 0:
+            break
+        if arr[i] != n - i:
+            j = pos[n - i]
+            arr[i], arr[j] = arr[j], arr[i]
+            pos[arr[i]], pos[arr[j]] = i, j
+            k -= 1
+    return arr
 
-s = [1, 2, 3, 21, 7, 12, 14, 21]
+
+s = [4, 2, 3, 5, 1]
+#s = [5, 2, 3, 4, 1]
+k = 2
 #s = [1,2,3,4,5,6,7,8,9,10]
 #s = [7]
 #for i in s:
-print(toys(s))
+print(largestPermutation(k,s))

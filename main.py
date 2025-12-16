@@ -106,6 +106,8 @@ if __name__ == '__main__':
     table.add_row(str(i), "decentNumber", "11", str(practices.decentNumber(11)))
     i = i + 1
     table.add_row(str(i), "toys", "[1, 2, 3, 21, 7, 12, 14, 21]", str(practices.toys([1, 2, 3, 21, 7, 12, 14, 21])))
+    i = i + 1
+    table.add_row(str(i), "largestPermutation", "2,[4, 2, 3, 5, 1]", str(practices.largestPermutation(2,[4, 2, 3, 5, 1])))
 
     console.print(table)
 

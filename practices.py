@@ -628,3 +628,15 @@ def largestPermutation(k, arr):
             pos[arr[i]], pos[arr[j]] = i, j
             k -= 1
     return arr
+
+def maximumToys(prices, k):
+    # Write your code here
+    prices.sort()
+#    print(prices)
+    c = 0
+    count = 0
+    for p in prices:
+        c += p
+        if c > k: break
+        count += 1
+    return count

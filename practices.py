@@ -640,3 +640,19 @@ def maximumToys(prices, k):
         if c > k: break
         count += 1
     return count
+
+def jimOrders(orders):
+    # Write your code here
+    result = []
+    d = {}
+    for i in range(len(orders)):
+        t = sum(orders[i])
+        r = [i+1]
+        if t in d:
+            d[t] += r 
+            d[t].sort()
+        else:
+            d[t] = r
+    for i in sorted(d):
+        result += d[i]
+    return result

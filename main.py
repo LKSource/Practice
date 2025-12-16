@@ -110,6 +110,8 @@ if __name__ == '__main__':
     table.add_row(str(i), "largestPermutation", "2,[4, 2, 3, 5, 1]", str(practices.largestPermutation(2,[4, 2, 3, 5, 1])))
     i = i + 1
     table.add_row(str(i), "maximumToys", "[1, 2, 3, 4],7", str(practices.maximumToys([1, 2, 3, 4],7)))
+    i = i + 1
+    table.add_row(str(i), "jimOrders", "[[8,1],[4,2],[5,6],[3,1],[4,3]]", str(practices.jimOrders([[8,1],[4,2],[5,6],[3,1],[4,3]])))
 
     console.print(table)
 

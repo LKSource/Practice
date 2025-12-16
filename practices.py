@@ -656,3 +656,13 @@ def jimOrders(orders):
     for i in sorted(d):
         result += d[i]
     return result
+
+def twoArrays(k, A, B):
+    # Write your code here
+    A.sort()
+    B.sort(reverse=True)
+    check = True
+    for i in range(len(A)):
+        if A[i] + B[i] < k:
+            check = False
+    return 'YES' if check else 'NO'

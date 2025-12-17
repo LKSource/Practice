@@ -1,17 +1,15 @@
 import operator
 import itertools
 
-def gameOfStones(n):
+def towerBreakers(n, m):
     # Write your code here
-    #print(n)
-    if n % 7 in (0, 1):
-        return 'Second'
+    if m == 1:
+        return 2
     else:
-        return 'First'
+        return 1 if n % 2 == 1 else 2
 
-s = [7,8,14,15,9,10,11,12,13]
-#s = [14, 15]
-for i in s:
-    print(gameOfStones(i))
+n = 2
+m = 2
+print(towerBreakers(n, m))
 
 # 7,8,14,15

@@ -710,3 +710,10 @@ def gameOfStones(n):
         return 'Second'
     else:
         return 'First'
+    
+def towerBreakers(n, m):
+    # Write your code here
+    if m == 1:
+        return 2
+    else:
+        return 1 if n % 2 == 1 else 2    

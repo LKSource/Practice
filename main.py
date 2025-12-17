@@ -114,6 +114,8 @@ if __name__ == '__main__':
     table.add_row(str(i), "jimOrders", "[[8,1],[4,2],[5,6],[3,1],[4,3]]", str(practices.jimOrders([[8,1],[4,2],[5,6],[3,1],[4,3]])))
     i = i + 1
     table.add_row(str(i), "twoArrays", "10,[2, 1, 3],[7, 8, 9]", str(practices.twoArrays(10,[2, 1, 3],[7, 8, 9])))
+    i = i + 1
+    table.add_row(str(i), "lonelyinteger", "[0,0,1,2,1]", str(practices.lonelyinteger([0,0,1,2,1])))
 
     console.print(table)
 

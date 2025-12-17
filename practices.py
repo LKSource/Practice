@@ -666,3 +666,8 @@ def twoArrays(k, A, B):
         if A[i] + B[i] < k:
             check = False
     return 'YES' if check else 'NO'
+
+def lonelyinteger(a):
+    # Write your code here
+    result = [r for r in a if a.count(r)==1]
+    return result[0]

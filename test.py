@@ -1,14 +1,9 @@
 from itertools import combinations
 
-def twoArrays(k, A, B):
+def lonelyinteger(a):
     # Write your code here
-    A.sort()
-    B.sort(reverse=True)
-    check = True
-    for i in range(len(A)):
-        if A[i] + B[i] < k:
-            check = False
-    return 'YES' if check else 'NO'
+    result = [r for r in a if a.count(r)==1]
+    return result[0]
 
 s = [[8,1],[4,2],[5,6],[3,1],[4,3]]
 #s = [1, 2, 3, 4]
@@ -18,6 +13,6 @@ s = [[8,1],[4,2],[5,6],[3,1],[4,3]]
 #s = [7]
 #for i in s:
 A = [2, 1, 3]
-B = [7, 8, 9]
+B = [0,0,1,2,1]
 k = 10
-print(twoArrays(k, A, B))
+print(lonelyinteger(B))

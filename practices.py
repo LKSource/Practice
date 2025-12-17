@@ -694,3 +694,12 @@ def sumXor(n):
         return 1
     zero_bits = n.bit_length() - n.bit_count()
     return 1 << zero_bits
+
+def flippingBits(n):
+    # Write your code here
+    rev = ""
+    binary_string_32bit = format(n, '032b')
+    for i in binary_string_32bit:
+        if i == '0': rev += '1' 
+        else: rev += '0'
+    return int(rev,2)

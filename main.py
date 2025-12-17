@@ -120,6 +120,8 @@ if __name__ == '__main__':
     table.add_row(str(i), "maximizingXor", "10,15", str(practices.maximizingXor(10,15)))
     i = i + 1
     table.add_row(str(i), "sumXor", "1000000000000000", str(practices.sumXor(1000000000000000)))
+    i = i + 1
+    table.add_row(str(i), "flippingBits", "1", str(practices.flippingBits(1)))
 
     console.print(table)
 

@@ -116,6 +116,8 @@ if __name__ == '__main__':
     table.add_row(str(i), "twoArrays", "10,[2, 1, 3],[7, 8, 9]", str(practices.twoArrays(10,[2, 1, 3],[7, 8, 9])))
     i = i + 1
     table.add_row(str(i), "lonelyinteger", "[0,0,1,2,1]", str(practices.lonelyinteger([0,0,1,2,1])))
+    i = i + 1
+    table.add_row(str(i), "maximizingXor", "10,15", str(practices.maximizingXor(10,15)))
 
     console.print(table)
 

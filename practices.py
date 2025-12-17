@@ -671,3 +671,19 @@ def lonelyinteger(a):
     # Write your code here
     result = [r for r in a if a.count(r)==1]
     return result[0]
+
+import operator
+import itertools
+
+def maximizingXor(l, r):
+    # Write your code here
+    lst = []
+    for i in range(l,r+1):
+        lst += [i]
+    plst = list(itertools.permutations(lst, r=2))
+    result = 0
+    for i in plst:
+        t = operator.xor(i[0],i[1])
+        if t > result:
+            result = t
+    return result

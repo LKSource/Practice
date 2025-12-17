@@ -1,9 +1,18 @@
-from itertools import combinations
+import operator
+import itertools
 
-def lonelyinteger(a):
+def maximizingXor(l, r):
     # Write your code here
-    result = [r for r in a if a.count(r)==1]
-    return result[0]
+    lst = []
+    for i in range(l,r+1):
+        lst += [i]
+    plst = list(itertools.permutations(lst, r=2))
+    result = 0
+    for i in plst:
+        t = operator.xor(i[0],i[1])
+        if t > result:
+            result = t
+    return result
 
 s = [[8,1],[4,2],[5,6],[3,1],[4,3]]
 #s = [1, 2, 3, 4]
@@ -15,4 +24,6 @@ s = [[8,1],[4,2],[5,6],[3,1],[4,3]]
 A = [2, 1, 3]
 B = [0,0,1,2,1]
 k = 10
-print(lonelyinteger(B))
+l = 10
+r = 15
+print(maximizingXor(l,r))

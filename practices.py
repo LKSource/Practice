@@ -703,3 +703,10 @@ def flippingBits(n):
         if i == '0': rev += '1' 
         else: rev += '0'
     return int(rev,2)
+
+def gameOfStones(n):
+    # Write your code here
+    if n % 7 in (0, 1):
+        return 'Second'
+    else:
+        return 'First'

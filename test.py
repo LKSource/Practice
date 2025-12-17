@@ -1,13 +1,17 @@
 import operator
 import itertools
 
-def flippingBits(n):
+def gameOfStones(n):
     # Write your code here
-    rev = ""
-    binary_string_32bit = format(n, '032b')
-    for i in binary_string_32bit:
-        if i == '0': rev += '1' 
-        else: rev += '0'
-    return int(rev,2)
+    #print(n)
+    if n % 7 in (0, 1):
+        return 'Second'
+    else:
+        return 'First'
 
-print(flippingBits(1))
+s = [7,8,14,15,9,10,11,12,13]
+#s = [14, 15]
+for i in s:
+    print(gameOfStones(i))
+
+# 7,8,14,15

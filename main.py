@@ -122,6 +122,8 @@ if __name__ == '__main__':
     table.add_row(str(i), "sumXor", "1000000000000000", str(practices.sumXor(1000000000000000)))
     i = i + 1
     table.add_row(str(i), "flippingBits", "1", str(practices.flippingBits(1)))
+    i = i + 1
+    table.add_row(str(i), "gameOfStones", "14", str(practices.gameOfStones(14)))
 
     console.print(table)
 

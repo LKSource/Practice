@@ -687,3 +687,10 @@ def maximizingXor(l, r):
         if t > result:
             result = t
     return result
+
+def sumXor(n):
+    # Write your code here
+    if n == 0:
+        return 1
+    zero_bits = n.bit_length() - n.bit_count()
+    return 1 << zero_bits

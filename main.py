@@ -118,6 +118,8 @@ if __name__ == '__main__':
     table.add_row(str(i), "lonelyinteger", "[0,0,1,2,1]", str(practices.lonelyinteger([0,0,1,2,1])))
     i = i + 1
     table.add_row(str(i), "maximizingXor", "10,15", str(practices.maximizingXor(10,15)))
+    i = i + 1
+    table.add_row(str(i), "sumXor", "1000000000000000", str(practices.sumXor(1000000000000000)))
 
     console.print(table)
 

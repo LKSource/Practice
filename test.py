@@ -1,15 +1,14 @@
 import operator
 import itertools
+from functools import reduce
+import operator
 
-def towerBreakers(n, m):
+def nimGame(pile):
     # Write your code here
-    if m == 1:
-        return 2
-    else:
-        return 1 if n % 2 == 1 else 2
+    return 'First' if reduce(operator.xor, pile, 0) != 0 else 'Second'
 
 n = 2
-m = 2
-print(towerBreakers(n, m))
+m = [3,2,4]
+print(nimGame(m))
 
 # 7,8,14,15

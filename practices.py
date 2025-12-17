@@ -716,4 +716,10 @@ def towerBreakers(n, m):
     if m == 1:
         return 2
     else:
-        return 1 if n % 2 == 1 else 2    
+        return 1 if n % 2 == 1 else 2
+
+from functools import reduce
+import operator
+def nimGame(pile):
+    # Write your code here
+    return 'First' if reduce(operator.xor, pile, 0) != 0 else 'Second'

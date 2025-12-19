@@ -723,3 +723,82 @@ import operator
 def nimGame(pile):
     # Write your code here
     return 'First' if reduce(operator.xor, pile, 0) != 0 else 'Second'
+
+def highestValuePalindrome(s, n, k):
+    # Write your code here
+    n = len(s)
+    s = list(s)
+    remaining = k
+
+    c_required = 0
+    for i in range(n // 2):
+        j = n - 1 - i
+        if s[i] != s[j]:
+            c_required +=1
+    if c_required > remaining : return "-1"
+#    print(c_required, k)
+    if c_required == 0 and remaining == 1 and n%2 == 1:
+        mid = n // 2
+        s[mid] = '9'
+#    print('here',c_required)
+        return ''.join(s)
+    if c_required == remaining :
+        for i in range(n // 2):
+            j = n - 1 - i
+            if s[i] != s[j]:
+                # Make them equal to the larger digit (to keep value high)
+                max_digit = max(s[i], s[j])
+                s[i] = s[j] = max_digit
+                remaining -= 1
+                if remaining < 0:
+                    return "-1"
+
+    # Pass 1: Make it a palindrome with minimal changes
+    for i in range(n // 2):
+        j = n - 1 - i
+        if remaining <= 0:
+            break
+        if s[i] != s[j]:
+            # Make them equal to the larger digit (to keep value high)
+            max_digit = max(s[i], s[j])
+            if max_digit == '9':
+                s[i] = s[j] = max_digit
+                remaining -= 1
+            else:
+                if remaining - c_required > 0:
+                    s[i] = s[j] = '9'
+                    remaining -= 2
+                else:
+                    s[i] = s[j] = max_digit
+                    remaining -= 1
+            c_required -=1
+            if remaining < 0:
+                return "-1"
+        else:
+            if remaining - c_required > 0 and s[i] != '9':
+                if remaining > 1:
+                    s[i] = s[j] = '9'
+                    remaining -= 2
+            if remaining < 0:
+                return "-1"
+        
+#    print('Remaining',remaining,c_required)
+    # Pass 2: Maximize from outside in using remaining changes
+    for i in range(n // 2):
+        j = n - 1 - i
+        if remaining <= 0:
+            break
+        if s[i] == '9':
+            continue  # already maxed
+        # To change both to '9', need 2 changes
+        if remaining >= 2:
+            s[i] = s[j] = '9'
+            remaining -= 2
+        # If only 1 change left, can't upgrade a pair (needs 2)
+
+    # Middle digit (if any)
+    if remaining > 0 and n % 2 == 1:
+        mid = n // 2
+        s[mid] = '9'
+#    print('here',c_required)
+    return ''.join(s)

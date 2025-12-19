@@ -130,6 +130,8 @@ if __name__ == '__main__':
     table.add_row(str(i), "towerBreakers", "2,100", str(practices.towerBreakers(2,2)))
     i = i + 1
     table.add_row(str(i), "nimGame", "[3,2,4]", str(practices.nimGame([3,2,4])))
+    i = i + 1
+    table.add_row(str(i), "highestValuePalindrome", "'11211',5,3", str(practices.highestValuePalindrome('11211',5,3)))
     
     console.print(table)
 

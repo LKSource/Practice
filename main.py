@@ -134,6 +134,8 @@ if __name__ == '__main__':
     table.add_row(str(i), "highestValuePalindrome", "'11211',5,3", str(practices.highestValuePalindrome('11211',5,3)))
     i = i + 1
     table.add_row(str(i), "isValid", "aabbcccdd", str(practices.isValid('aabbcccdd')))
+    i = i + 1
+    table.add_row(str(i), "sherlockAndAnagrams", "kkkk", str(practices.sherlockAndAnagrams('kkkk')))
     
     console.print(table)
 

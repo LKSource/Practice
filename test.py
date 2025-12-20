@@ -1,19 +1,31 @@
-def isValid(s):
-    # Write your code here
-    r = []
-    for i in set(s):
-        r.append(s.count(i))
-#    print(r,set(r))
-    if len(set(r)) == 1 : return "YES"
-    else: 
-        for i in set(r):
-#            print(r.count(i))
-            if r.count(i) == 1:
-#                print([r.index(i)])
-                r[r.index(i)] = r[r.index(i)] - 1
-                if 0 in r: r.remove(0)
-                break
-        return "YES" if len(set(r)) == 1 else "NO"
 
-s = 'aabbcccdd'
-print(isValid(s))
+from collections import defaultdict
+
+def sherlockAndAnagrams(s):
+    # Write your code here
+    n = len(s)
+    total_pairs = 0
+
+    # Iterate over all possible substring lengths (1 to n-1)
+    for length in range(1, n):
+        freq_map = defaultdict(int)
+        
+        # Extract all substrings of current length
+        for i in range(n - length + 1):
+            substring = s[i:i + length]
+            # Sort characters to create anagram signature
+            sorted_sub = ''.join(sorted(substring))
+            freq_map[sorted_sub] += 1
+        
+        # For each anagram group, count pairs: C(count, 2)
+        for count in freq_map.values():
+            if count > 1:
+                total_pairs += count * (count - 1) // 2
+
+    return total_pairs
+
+s = 'abba'
+s = 'cdcd'
+s = 'kkkk'
+#s = 'abc'
+print(sherlockAndAnagrams(s))

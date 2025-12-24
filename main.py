@@ -136,6 +136,8 @@ if __name__ == '__main__':
     table.add_row(str(i), "isValid", "aabbcccdd", str(practices.isValid('aabbcccdd')))
     i = i + 1
     table.add_row(str(i), "sherlockAndAnagrams", "kkkk", str(practices.sherlockAndAnagrams('kkkk')))
+    i = i + 1
+    table.add_row(str(i), "commonChild", "'ABCD','ABDC'", str(practices.commonChild('ABCD','ABDC')))
     
     console.print(table)
 

@@ -140,6 +140,8 @@ if __name__ == '__main__':
     table.add_row(str(i), "commonChild", "'ABCD','ABDC'", str(practices.commonChild('ABCD','ABDC')))
     i = i + 1
     table.add_row(str(i), "bomberMan", "3,['.......', '...O...', '....O..','.......', 'OO.....', 'OO.....']", str(practices.bomberMan(3,['.......', '...O...', '....O..','.......', 'OO.....', 'OO.....'])))
+    i = i + 1
+    table.add_row(str(i), "answerQuery", "1,4", practices.initialize("week") + str(practices.answerQuery(1, 4)))
     
     console.print(table)
 

@@ -142,6 +142,8 @@ if __name__ == '__main__':
     table.add_row(str(i), "bomberMan", "3,['.......', '...O...', '....O..','.......', 'OO.....', 'OO.....']", str(practices.bomberMan(3,['.......', '...O...', '....O..','.......', 'OO.....', 'OO.....'])))
     i = i + 1
     table.add_row(str(i), "answerQuery", "1,4", practices.initialize("week") + str(practices.answerQuery(1, 4)))
+    i = i + 1
+    table.add_row(str(i), "larrysArray", "[1, 6, 5, 2, 4, 3]", str(practices.larrysArray([1, 6, 5, 2, 4, 3])))
     
     console.print(table)
 

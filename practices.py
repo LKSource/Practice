@@ -1,4 +1,10 @@
 import string
+import itertools
+from itertools import combinations
+import operator
+from functools import reduce
+from collections import defaultdict, Counter
+
 
 def fibonacci(n):
     """Return the nth Fibonacci number."""
@@ -14,14 +20,16 @@ def fibonacci(n):
             a, b = b, a + b
         return b
 
+
 def is_palindrome(s):
     """Check if the given string is a palindrome."""
     s = s.lower().replace(" ", "")
-    s = ''.join(char for char in s if char.isalnum())
+    s = "".join(char for char in s if char.isalnum())
     for i in range(len(s) // 2):
         if s[i] != s[-(i + 1)]:
             return False
     return True
+
 
 def superReducedString(s):
     # Write your code here
@@ -30,15 +38,17 @@ def superReducedString(s):
         while double_char in s:
             s = s.replace(double_char, "")
             s = superReducedString(s)
-    if s == "" :
-        return 'Empty String'
+    if s == "":
+        return "Empty String"
     else:
         return s
+
 
 def camelcase(s):
     # Write your code here
     count = sum(1 for char in s if char.isupper())
     return count + 1
+
 
 def minimumNumber(n, password):
     # Return the minimum number of characters to make the password strong
@@ -50,16 +60,18 @@ def minimumNumber(n, password):
     has_number = any(char in numbers for char in password)
     has_lower = any(char in lower_case for char in password)
     has_upper = any(char in upper_case for char in password)
-    has_special = any(char in special_characters for char in password)   
- 
+    has_special = any(char in special_characters for char in password)
+
     s = 4 - (has_number + has_lower + has_upper + has_special)
 
     if s + len(password) >= 6:
-        return(s)
+        return s
     else:
-        return(6 - len(password))
+        return 6 - len(password)
 
-greekAlphabet = ['Alpha', 'Beta', 'Gamma', 'Delta', 'Theta']
+
+greekAlphabet = ["Alpha", "Beta", "Gamma", "Delta", "Theta"]
+
 
 def my_decorator(func):
     def wrapper(*args, **kwargs):
@@ -67,11 +79,14 @@ def my_decorator(func):
             kwargs[key] = value.capitalize()
         result = func(*args, **kwargs)
         return result
+
     return wrapper
+
 
 @my_decorator
 def isGreekAlphabet(name):
     return "True" if name in greekAlphabet else "False"
+
 
 def alternate(s):
     sc = set()
@@ -83,38 +98,40 @@ def alternate(s):
             uc.append(char)
 
     s1 = "".join(uc)
-    #print((s1))
-    r = []
+    # print((s1))
     max_length = 0
-    for i in range(0,len(s1)):
-        for j in range(i+1,len(s1)):
-            #print(s1[i],s1[j])
-#            s2 = s.replace(s1[i],"")
+    for i in range(0, len(s1)):
+        for j in range(i + 1, len(s1)):
+            # print(s1[i],s1[j])
+            #            s2 = s.replace(s1[i],"")
             s3 = s
             for c in s1:
                 if c != s1[i] and c != s1[j]:
-#                s2 = s2.replace(c,"")
-                   s3 = s3.replace(c,"")
-            #print(s3)
-            #s4 = ''.join(set(s3))
+                    #                s2 = s2.replace(c,"")
+                    s3 = s3.replace(c, "")
+            # print(s3)
+            # s4 = ''.join(set(s3))
             l = len(s3)
             valid = True
             for k in range(1, l):
-                if s3[k] == s3[k-1]:
+                if s3[k] == s3[k - 1]:
                     valid = False
                     break
-                    
+
             if l > max_length and valid:
                 max_length = l
-            #print(s4)
-            #print(s3,s.count(s4),s.count(s4[::-1]),len(s3)//2)
-            #print(s.count(s4[::-1]) == len(s3)//2 or s.count(s4) == len(s3)//2, len(s3))
-            #if (s3[0:len(s3)//2 * 2].count(s4[::-1]) == len(s3)//2 or s3[0:len(s3)//2 * 2].count(s4) == len(s3)//2):
-                #r.append(len(s3))
-                #print(len(s3),s3)
-        #print(s)
+            # print(s4)
+            # print(s3,s.count(s4),s.count(s4[::-1]),len(s3)//2)
+            # print(s.count(s4[::-1]) == len(s3)//2 or
+            # s.count(s4) == len(s3)//2, len(s3))
+            # if (s3[0:len(s3)//2 * 2].count(s4[::-1]) == len(s3)//2
+            # or s3[0:len(s3)//2 * 2].count(s4) == len(s3)//2):
+            # r.append(len(s3))
+            # print(len(s3),s3)
+        # print(s)
     return max_length
-        # Write your code here
+    # Write your code here
+
 
 def hackerrankInString(s):
     # Write your code here
@@ -126,34 +143,36 @@ def hackerrankInString(s):
     for char in ref:
         while i < len(s) and char != s[i]:
             i += 1
-        if i < len(s) :
+        if i < len(s):
             if char == s[i]:
-                #print(i)                
+                # print(i)
                 t.append(i)
                 target.append(char)
-                i += 1 
-    #print(target)                
-    return 'YES' if ref == ''.join(target) else 'NO'
+                i += 1
+    # print(target)
+    return "YES" if ref == "".join(target) else "NO"
+
 
 def caesarCipher(s, k):
     # Write your code here
     b = string.ascii_lowercase
     r = []
-    
+
     for char in s:
         if char in string.ascii_lowercase:
-            index = (string.ascii_lowercase.index(char) + k +1) % 26
+            index = (string.ascii_lowercase.index(char) + k + 1) % 26
             if index == 0:
                 index = 26
-            r.append(b[index-1])
+            r.append(b[index - 1])
         elif char in string.ascii_uppercase:
-            index = (string.ascii_uppercase.index(char) + k +1) % 26
+            index = (string.ascii_uppercase.index(char) + k + 1) % 26
             if index == 0:
                 index = 26
-            r.append(b[index-1].upper())
+            r.append(b[index - 1].upper())
         else:
             r.append(char)
-    return(''.join(r))
+    return "".join(r)
+
 
 def marsExploration(s):
     r = "SOS"
@@ -161,10 +180,11 @@ def marsExploration(s):
     if len(s) % 3 != 0:
         return 0
     count = 0
-    for i in range(0,len(s)//3):
-        s1 = s[i*3:i*3+3]
+    for i in range(0, len(s) // 3):
+        s1 = s[i * 3: i * 3 + 3]
         count += sum(1 for a, b in zip(s1, r) if a != b)
     return count
+
 
 def quickSort(arr):
     # Write your code here
@@ -172,15 +192,16 @@ def quickSort(arr):
     right = []
     equal = []
 
-    for i in range(0,len(arr)):
+    for i in range(0, len(arr)):
         if arr[i] < arr[0]:
             left.append(arr[i])
         elif arr[i] > arr[0]:
             right.append(arr[i])
         else:
             equal.append(arr[i])
-    #print(left, equal, right)
+    # print(left, equal, right)
     return left + equal + right
+
 
 def pangrams(s):
     # Write your code here
@@ -190,11 +211,12 @@ def pangrams(s):
     for char in ref:
         if char in s:
             count += 1
-    if count == 26:       
-        return 'pangram'
+    if count == 26:
+        return "pangram"
     else:
-        return 'not pangram'
-    
+        return "not pangram"
+
+
 def weightedUniformStrings(s, queries):
     # Write your code here
     pw = set()
@@ -202,43 +224,46 @@ def weightedUniformStrings(s, queries):
 
     for i in range(len(s)):
         char = s[i]
-        w = ord(char) - ord('a') + 1
+        w = ord(char) - ord("a") + 1
         if i == 0 or char != s[i - 1]:
-            cw = w  
+            cw = w
         else:
             cw += w
         pw.add(cw)
-    
-    r = ['Yes' if q in pw else 'No' for q in queries]
 
-    return (r)
+    r = ["Yes" if q in pw else "No" for q in queries]
+
+    return r
+
 
 def separateNumbers(s):
     # Write your code here
     r = "NO"
 
-    for i in range(1, len(s)//2+1):
+    for i in range(1, len(s) // 2 + 1):
         st = s[0:i]
         num = int(st)
-        for j in range(1, len(s)//i):
+        for j in range(1, len(s) // i):
             num += 1
             st += str(num)
             if st == s:
                 r = "YES " + s[0:i]
                 break
-    #print(r)
+    # print(r)
     return r
+
 
 def funnyString(s):
     # Write your code here
     r = s[::-1]
     result = True
     for i in range(1, len(s)):
-        if abs(ord(s[i]) - ord(s[i-1])) != abs(ord(r[i]) - ord(r[i-1])):
+        if abs(ord(s[i]) - ord(s[i - 1])) != abs(ord(r[i]) - ord(r[i - 1])):
             result = False
             break
 
-    return 'Funny' if result else 'Not Funny'
+    return "Funny" if result else "Not Funny"
+
 
 def countingSort(arr):
     # Write your code here
@@ -251,38 +276,42 @@ def countingSort(arr):
             r.append(index)
     return r
 
+
 def gemstones(arr):
     # Write your code here
     ref = string.ascii_lowercase
 
     for s in arr:
-        ref = ''.join([c for c in ref if c in s])
-    #print(ref)
+        ref = "".join([c for c in ref if c in s])
+    # print(ref)
     return len(ref)
+
 
 def alternatingCharacters(s):
     # Write your code here
     count = 0
-    if s.count('A') == len(s) or s.count('B') == len(s):
+    if s.count("A") == len(s) or s.count("B") == len(s):
         count = len(s) - 1
     else:
-        for i in range(1,len(s)):
-            if s[i] == s[i-1]:
-                count += 1 
+        for i in range(1, len(s)):
+            if s[i] == s[i - 1]:
+                count += 1
     return count
+
 
 def beautifulBinaryString(b):
     # Write your code here
-    count = b.count('010')
+    count = b.count("010")
     return count
+
 
 def closestNumbers(arr):
     # Write your code here
     arr.sort()
-    min_diff = float('inf')
+    min_diff = float("inf")
     result = []
     for i in range(len(arr) - 1):
-        diff = arr[i + 1] -  arr[i]
+        diff = arr[i + 1] - arr[i]
         if diff < min_diff:
             min_diff = diff
             result = [arr[i], arr[i + 1]]
@@ -291,33 +320,37 @@ def closestNumbers(arr):
             result.append(arr[i + 1])
     return result
 
+
 def findMedian(arr):
     # Write your code here
     arr.sort()
-    return arr[len(arr)//2]
+    return arr[len(arr) // 2]
+
 
 def theLoveLetterMystery(s):
     # Write your code here
     count = 0
     n = len(s)
-    for i in range(n//2):
-        if s[i] != s[n-i-1]:
-            count += abs(ord(s[i]) - ord(s[n-i-1]))
+    for i in range(n // 2):
+        if s[i] != s[n - i - 1]:
+            count += abs(ord(s[i]) - ord(s[n - i - 1]))
     return count
+
 
 def palindromeIndex(s):
     # Write your code here
     if s == s[::-1]:
         return -1
     n = len(s)
-    for i in range(n//2):
-        if s[i] != s[n-i-1]:
+    for i in range(n // 2):
+        if s[i] != s[n - i - 1]:
             new_string = s[:i] + s[i + 1:]
             if new_string == new_string[::-1]:
                 return i
             else:
                 return n - i - 1
-            
+
+
 def anagram(s):
     # Write your code here
     if len(s) % 2 != 0:
@@ -330,6 +363,7 @@ def anagram(s):
         count += max(0, s1.count(char) - s2.count(char))
     return count
 
+
 def makingAnagrams(s1, s2):
     # Write your code here
     count = 0
@@ -338,6 +372,7 @@ def makingAnagrams(s1, s2):
     for char in set(s2):
         count += max(0, s2.count(char) - s1.count(char))
     return count
+
 
 def gameOfThrones(s):
     # Write your code here
@@ -350,8 +385,9 @@ def gameOfThrones(s):
         return "YES"
     elif len(s) % 2 == 1 and count == 1:
         return "YES"
-    else:     
+    else:
         return "NO"
+
 
 def twoStrings(s1, s2):
     # Write your code here
@@ -360,9 +396,11 @@ def twoStrings(s1, s2):
             return "YES"
     return "NO"
 
+
 def stringConstruction(s):
     # Write your code here
     return len(set(s))
+
 
 def knightlOnAChessboard(n):
     # Write your code here
@@ -371,35 +409,46 @@ def knightlOnAChessboard(n):
         results = []
         for j in range(1, n):
             r = []
-            #print(f"({i},{j})", end=" ")
+            # print(f"({i},{j})", end=" ")
             # Implement BFS or DFS to find the shortest path
             from collections import deque
-            visited = [[False]*n for _ in range(n)]
+
+            visited = [[False] * n for _ in range(n)]
             queue = deque()
             queue.append((0, 0, 0))  # (x, y,
             visited[0][0] = True
             found = False
             while queue:
                 x, y, dist = queue.popleft()
-                if x == n-1 and y == n-1:
+                if x == n - 1 and y == n - 1:
                     r.append(dist)
                     found = True
                     break
-                for dx, dy in [(i, j), (i, -j), (-i, j), (-i, -j), (j, i), (j, -i), (-j, i), (-j, -i)]:
+                for dx, dy in [
+                    (i, j),
+                    (i, -j),
+                    (-i, j),
+                    (-i, -j),
+                    (j, i),
+                    (j, -i),
+                    (-j, i),
+                    (-j, -i),
+                ]:
                     nx, ny = x + dx, y + dy
                     if 0 <= nx < n and 0 <= ny < n and not visited[nx][ny]:
                         visited[nx][ny] = True
                         queue.append((nx, ny, dist + 1))
             if found:
-                #print(r[0], end=" ")
+                # print(r[0], end=" ")
                 results.append(r[0])
             else:
-                #print(-1, end=" ")  
+                # print(-1, end=" ")
                 results.append(-1)
-        #print(results)
-        arr.append(results)    
-        #print()
+        # print(results)
+        arr.append(results)
+        # print()
     return arr
+
 
 def same_pattern(x, y):
     if len(x) != len(y):
@@ -411,20 +460,25 @@ def same_pattern(x, y):
             return False
     return True
 
+
 def similarStrings(n, s, queries):
     # Write your code here
     c = []
     for query in queries:
-        l = query[0]
-        r = query[1]
-        substr = s[l-1:r]
+        left = query[0]
+        right = query[1]
+        substr = s[left - 1:right]
         if len(substr) == 1:
             c.append(len(s))
             continue
-        #print(substr)
-        ss = [s[i:i+r-l+1] for i in range(len(s)) if i+r-l+1 <= len(s)]
-#        print(substr)
-#        print(ss)
+        # print(substr)
+        ss = [
+            s[i:i + right - left + 1]
+            for i in range(len(s))
+            if i + right - left + 1 <= len(s)
+        ]
+        #        print(substr)
+        #        print(ss)
         count = 0
         for sub in ss:
             if sub == substr:
@@ -434,17 +488,18 @@ def similarStrings(n, s, queries):
             if len(set(sub)) != len(set(substr)):
                 continue
 
-            check = True    
+            check = True
             if not same_pattern(substr, sub):
                 check = False
 
             if check:
                 count += 1
         c.append(count)
-        #print(c)
+        # print(c)
 
-        #print(ss)
-    return c 
+        # print(ss)
+    return c
+
 
 def icecreamParlor(m, arr):
     cost_map = {}
@@ -454,6 +509,7 @@ def icecreamParlor(m, arr):
             return (cost_map[complement] + 1, i + 1)
         cost_map[cost] = i
     return None
+
 
 def missingNumbers(arr, brr):
     r = []
@@ -466,8 +522,9 @@ def missingNumbers(arr, brr):
     r.sort()
     return r
 
+
 def beautifulPairs(A, B):
-    
+
     count = 0
     ref = []
 
@@ -487,6 +544,7 @@ def beautifulPairs(A, B):
         count += 1
     return count
 
+
 def balancedSums(arr):
     # Write your code here
     total = sum(arr)
@@ -497,21 +555,21 @@ def balancedSums(arr):
         left_sum += num
     return "NO"
 
-import itertools
 
 def minimumAbsoluteDifference(arr):
     # Write your code here
-    arr.sort()  
-    min_diff = float('inf')
-    
+    arr.sort()
+    min_diff = float("inf")
+
     for i in range(1, len(arr)):
-        diff = arr[i] - arr[i - 1]  
+        diff = arr[i] - arr[i - 1]
         if diff < min_diff:
             min_diff = diff
-        if min_diff == 0:  
+        if min_diff == 0:
             break
-    
+
     return min_diff
+
 
 def marcsCakewalk(calorie):
     # Write your code here
@@ -521,15 +579,16 @@ def marcsCakewalk(calorie):
         r += 2**i * calorie[i]
     return r
 
+
 def gridChallenge(grid):
     # Write your code here
-#    print(grid)
+    #    print(grid)
     for i in range(len(grid)):
         g = list(grid[i])
         g.sort()
-#        print(g)
+        #        print(g)
         grid[i] = g
-        #print(grid[i].split())
+        # print(grid[i].split())
     check = True
     tl = list(map(list, zip(*grid)))
     for t in tl:
@@ -540,80 +599,87 @@ def gridChallenge(grid):
             break
     return "YES" if check else "NO"
 
+
 def luckBalance(k, contests):
     # Write your code here
-#    print(grid)
+    #    print(grid)
     im = []
     ni = []
     for i in contests:
-        if i[1]: im.append(i[0]) 
-        else: ni.append(i[0])
+        if i[1]:
+            im.append(i[0])
+        else:
+            ni.append(i[0])
     im.sort(reverse=True)
-    result = sum(im[0:k])+sum(ni)-(sum(im)-sum(im[0:k]))
-#    print(sum(im[0:k]),sum(ni),result)
-#    print(im, ni) 
+    result = sum(im[0:k]) + sum(ni) - (sum(im) - sum(im[0:k]))
+    #    print(sum(im[0:k]),sum(ni),result)
+    #    print(im, ni)
     return result
 
-from itertools import combinations
+
 def maximumPerimeterTriangle(sticks):
     # Write your code here
-    r = float('-inf')
+    r = float("-inf")
     c = combinations(sticks, 3)
     c = list(c)
-    #print(c)
-    l = []
+    # print(c)
+    result_list = []
     for i in c:
         i = list(i)
         i.sort()
-        if i[0]+i[1] == i[2]:
+        if i[0] + i[1] == i[2]:
             continue
-        if i[0]+i[1] > i[2] and sum(i) > r:
+        if i[0] + i[1] > i[2] and sum(i) > r:
             r = sum(i)
-            l = i
-#
-    return [-1] if not l else l
+            result_list = i
+    #
+    return [-1] if not result_list else result_list
+
 
 def decentNumber(n):
     # Write your code here
-    #print(n)
+    # print(n)
     result = []
     if n % 3 == 0:
-        result = ['5']*n
+        result = ["5"] * n
     elif n < 3 or n // 5 == 0:
-        result = ['-1']
+        result = ["-1"]
     else:
         i = n
         t = 0
         f = 0
         while 1:
-            #print(i)
-            if (i-5) % 3 == 0:
-                t = (i-5) // 3
-                f +=1
+            # print(i)
+            if (i - 5) % 3 == 0:
+                t = (i - 5) // 3
+                f += 1
                 break
             i -= 5
-            if i < 5: return '-1'
+            if i < 5:
+                return "-1"
             f += 1
-        #print(t,f)
-        result = ['5']*t*3
-        result += ['3']*f*5
-    return ''.join(result)
+        # print(t,f)
+        result = ["5"] * t * 3
+        result += ["3"] * f * 5
+    return "".join(result)
+
 
 def toys(w):
     # Write your code here
-    #print(n)
+    # print(n)
     w.sort()
     p = 0
     count = 0
     while p < len(w):
-        r = w[p]+4
+        r = w[p] + 4
         t = []
-        for j in range(p,len(w)):
+        for j in range(p, len(w)):
             if w[j] <= r:
                 t.append(w[j])
         count += 1
-        p += len(t) 
+        p += len(t)
     return count
+
 
 def largestPermutation(k, arr):
     # Write your code here
@@ -629,17 +695,20 @@ def largestPermutation(k, arr):
             k -= 1
     return arr
 
+
 def maximumToys(prices, k):
     # Write your code here
     prices.sort()
-#    print(prices)
+    #    print(prices)
     c = 0
     count = 0
     for p in prices:
         c += p
-        if c > k: break
+        if c > k:
+            break
         count += 1
     return count
+
 
 def jimOrders(orders):
     # Write your code here
@@ -647,15 +716,16 @@ def jimOrders(orders):
     d = {}
     for i in range(len(orders)):
         t = sum(orders[i])
-        r = [i+1]
+        r = [i + 1]
         if t in d:
-            d[t] += r 
+            d[t] += r
             d[t].sort()
         else:
             d[t] = r
     for i in sorted(d):
         result += d[i]
     return result
+
 
 def twoArrays(k, A, B):
     # Write your code here
@@ -665,28 +735,28 @@ def twoArrays(k, A, B):
     for i in range(len(A)):
         if A[i] + B[i] < k:
             check = False
-    return 'YES' if check else 'NO'
+    return "YES" if check else "NO"
+
 
 def lonelyinteger(a):
     # Write your code here
-    result = [r for r in a if a.count(r)==1]
+    result = [r for r in a if a.count(r) == 1]
     return result[0]
 
-import operator
-import itertools
 
-def maximizingXor(l, r):
+def maximizingXor(left, r):
     # Write your code here
     lst = []
-    for i in range(l,r+1):
+    for i in range(left, r + 1):
         lst += [i]
     plst = list(itertools.permutations(lst, r=2))
     result = 0
     for i in plst:
-        t = operator.xor(i[0],i[1])
+        t = operator.xor(i[0], i[1])
         if t > result:
             result = t
     return result
+
 
 def sumXor(n):
     # Write your code here
@@ -695,22 +765,27 @@ def sumXor(n):
     zero_bits = n.bit_length() - n.bit_count()
     return 1 << zero_bits
 
+
 def flippingBits(n):
     # Write your code here
     rev = ""
-    binary_string_32bit = format(n, '032b')
+    binary_string_32bit = format(n, "032b")
     for i in binary_string_32bit:
-        if i == '0': rev += '1' 
-        else: rev += '0'
-    return int(rev,2)
+        if i == "0":
+            rev += "1"
+        else:
+            rev += "0"
+    return int(rev, 2)
+
 
 def gameOfStones(n):
     # Write your code here
     if n % 7 in (0, 1):
-        return 'Second'
+        return "Second"
     else:
-        return 'First'
-    
+        return "First"
+
+
 def towerBreakers(n, m):
     # Write your code here
     if m == 1:
@@ -718,11 +793,11 @@ def towerBreakers(n, m):
     else:
         return 1 if n % 2 == 1 else 2
 
-from functools import reduce
-import operator
+
 def nimGame(pile):
     # Write your code here
-    return 'First' if reduce(operator.xor, pile, 0) != 0 else 'Second'
+    return "First" if reduce(operator.xor, pile, 0) != 0 else "Second"
+
 
 def highestValuePalindrome(s, n, k):
     # Write your code here
@@ -734,15 +809,16 @@ def highestValuePalindrome(s, n, k):
     for i in range(n // 2):
         j = n - 1 - i
         if s[i] != s[j]:
-            c_required +=1
-    if c_required > remaining : return "-1"
-#    print(c_required, k)
-    if c_required == 0 and remaining == 1 and n%2 == 1:
+            c_required += 1
+    if c_required > remaining:
+        return "-1"
+    #    print(c_required, k)
+    if c_required == 0 and remaining == 1 and n % 2 == 1:
         mid = n // 2
-        s[mid] = '9'
-#    print('here',c_required)
-        return ''.join(s)
-    if c_required == remaining :
+        s[mid] = "9"
+        #    print('here',c_required)
+        return "".join(s)
+    if c_required == remaining:
         for i in range(n // 2):
             j = n - 1 - i
             if s[i] != s[j]:
@@ -761,66 +837,68 @@ def highestValuePalindrome(s, n, k):
         if s[i] != s[j]:
             # Make them equal to the larger digit (to keep value high)
             max_digit = max(s[i], s[j])
-            if max_digit == '9':
+            if max_digit == "9":
                 s[i] = s[j] = max_digit
                 remaining -= 1
             else:
                 if remaining - c_required > 0:
-                    s[i] = s[j] = '9'
+                    s[i] = s[j] = "9"
                     remaining -= 2
                 else:
                     s[i] = s[j] = max_digit
                     remaining -= 1
-            c_required -=1
+            c_required -= 1
             if remaining < 0:
                 return "-1"
         else:
-            if remaining - c_required > 0 and s[i] != '9':
+            if remaining - c_required > 0 and s[i] != "9":
                 if remaining > 1:
-                    s[i] = s[j] = '9'
+                    s[i] = s[j] = "9"
                     remaining -= 2
             if remaining < 0:
                 return "-1"
-        
-#    print('Remaining',remaining,c_required)
+
+    #    print('Remaining',remaining,c_required)
     # Pass 2: Maximize from outside in using remaining changes
     for i in range(n // 2):
         j = n - 1 - i
         if remaining <= 0:
             break
-        if s[i] == '9':
+        if s[i] == "9":
             continue  # already maxed
         # To change both to '9', need 2 changes
         if remaining >= 2:
-            s[i] = s[j] = '9'
+            s[i] = s[j] = "9"
             remaining -= 2
         # If only 1 change left, can't upgrade a pair (needs 2)
 
     # Middle digit (if any)
     if remaining > 0 and n % 2 == 1:
         mid = n // 2
-        s[mid] = '9'
-#    print('here',c_required)
-    return ''.join(s)
+        s[mid] = "9"
+    #    print('here',c_required)
+    return "".join(s)
+
 
 def isValid(s):
     # Write your code here
     r = []
     for i in set(s):
         r.append(s.count(i))
-#    print(r,set(r))
-    if len(set(r)) == 1 : return "YES"
-    else: 
+    #    print(r,set(r))
+    if len(set(r)) == 1:
+        return "YES"
+    else:
         for i in set(r):
-#            print(r.count(i))
+            #            print(r.count(i))
             if r.count(i) == 1:
-#                print([r.index(i)])
+                #                print([r.index(i)])
                 r[r.index(i)] = r[r.index(i)] - 1
-                if 0 in r: r.remove(0)
+                if 0 in r:
+                    r.remove(0)
                 break
         return "YES" if len(set(r)) == 1 else "NO"
 
-from collections import defaultdict
 
 def sherlockAndAnagrams(s):
     # Write your code here
@@ -830,20 +908,21 @@ def sherlockAndAnagrams(s):
     # Iterate over all possible substring lengths (1 to n-1)
     for length in range(1, n):
         freq_map = defaultdict(int)
-        
+
         # Extract all substrings of current length
         for i in range(n - length + 1):
             substring = s[i:i + length]
             # Sort characters to create anagram signature
-            sorted_sub = ''.join(sorted(substring))
+            sorted_sub = "".join(sorted(substring))
             freq_map[sorted_sub] += 1
-        
+
         # For each anagram group, count pairs: C(count, 2)
         for count in freq_map.values():
             if count > 1:
                 total_pairs += count * (count - 1) // 2
 
     return total_pairs
+
 
 def commonChild(s1, s2):
     n = len(s1)
@@ -858,24 +937,30 @@ def commonChild(s1, s2):
                 dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])
     return dp[n][m]
 
+
 def detonate(grid):
     rows = len(grid)
     cols = len(grid[0])
-    result = [['O'] * cols for _ in range(rows)]
+    result = [["O"] * cols for _ in range(rows)]
     for i in range(rows):
         for j in range(cols):
-            if grid[i][j] == 'O':
-                result[i][j] = '.'
-                if i > 0: result[i-1][j] = '.'
-                if i < rows - 1: result[i+1][j] = '.'
-                if j > 0: result[i][j-1] = '.'
-                if j < cols - 1: result[i][j+1] = '.'
-    return [''.join(row) for row in result]
+            if grid[i][j] == "O":
+                result[i][j] = "."
+                if i > 0:
+                    result[i - 1][j] = "."
+                if i < rows - 1:
+                    result[i + 1][j] = "."
+                if j > 0:
+                    result[i][j - 1] = "."
+                if j < cols - 1:
+                    result[i][j + 1] = "."
+    return ["".join(row) for row in result]
+
 
 def bomberMan(n, grid):
     if n == 1:
         return grid
-    full = ['O' * len(grid[0]) for _ in range(len(grid))]
+    full = ["O" * len(grid[0]) for _ in range(len(grid))]
     if n % 2 == 0:
         return full
     s3 = detonate(grid)
@@ -883,8 +968,7 @@ def bomberMan(n, grid):
         return s3
     else:
         return detonate(s3)
-    
-from collections import Counter
+
 
 MOD = 1000000007
 MAX_N = 10**5 + 5
@@ -894,14 +978,16 @@ s = ""
 fact = None
 _fact_computed = False
 
+
 def _precompute_factorials():
     global fact, _fact_computed
     if _fact_computed:
         return
     fact = [1] * MAX_N
     for i in range(1, MAX_N):
-        fact[i] = (fact[i-1] * i) % MOD
+        fact[i] = (fact[i - 1] * i) % MOD
     _fact_computed = True
+
 
 def initialize(s_input):
     global s
@@ -909,20 +995,22 @@ def initialize(s_input):
     _precompute_factorials()
     return ""
 
+
 def modinv(a, mod=MOD):
     return pow(a, mod - 2, mod)
 
-def answerQuery(l, r):
+
+def answerQuery(left, r):
     global s, fact
     if not s:
         raise ValueError("Call initialize(s) first.")
-    
-    substr = s[l-1:r]
-    n = len(substr)
+
+    substr = s[left - 1:r]
+    # n = len(substr)
     freq = Counter(substr)
-    
+
     # Build half multiset and count odd-frequency characters
-    half_freq = []
+    # half_freq = []
     odd_count = 0
     half_len = 0
     for count in freq.values():
@@ -946,10 +1034,11 @@ def answerQuery(l, r):
     result = (half_perms * center_choices) % MOD
     return result
 
+
 def larrysArray(A):
     count = 0
-    for i in range(len(A)-1):
-        for j in range(i+1, len(A)):
+    for i in range(len(A) - 1):
+        for j in range(i + 1, len(A)):
             if A[i] > A[j]:
                 count += 1
     return "YES" if count % 2 == 0 else "NO"

@@ -6,7 +6,8 @@ from rich.table import Table
 # This is a sample Python script.
 
 # Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+# Press Double ⇧ to search everywhere for classes, files, tool windows,
+# actions, and settings.
 
 
 def print_hi(name):
@@ -25,7 +26,9 @@ if __name__ == "__main__":
     table.add_column("Result", style="green")
     print_hi("Namashivaya Narayana Swami Narayan ")
     table.add_row("1", "fibonacci", str(practices.fibonacci(10)))
-    table.add_row("2", "is_palindrome", str(practices.is_palindrome("malayalam")))
+    table.add_row(
+        "2", "is_palindrome", str(practices.is_palindrome("malayalam"))
+    )
     ls = [
         "aabccddd",
         "aaabccddd",
@@ -46,12 +49,18 @@ if __name__ == "__main__":
         str(i), "camelcase", str(practices.camelcase("saveChangesInTheEditor"))
     )
     i = i + 1
-    table.add_row(str(i), "minimumNumber", str(practices.minimumNumber(5, "2bbbb")))
-    i = i + 1
-    table.add_row(str(i), "isGreekAlphabet", str(practices.isGreekAlphabet("ALPHA")))
+    table.add_row(
+        str(i), "minimumNumber", str(practices.minimumNumber(5, "2bbbb"))
+    )
     i = i + 1
     table.add_row(
-        str(i), "alternate", str(practices.alternate("asdcbsdcagfsdbgdfanfghbsfdab"))
+        str(i), "isGreekAlphabet", str(practices.isGreekAlphabet("ALPHA"))
+    )
+    i = i + 1
+    table.add_row(
+        str(i),
+        "alternate",
+        str(practices.alternate("asdcbsdcagfsdbgdfanfghbsfdab")),
     )
     i = i + 1
     table.add_row(
@@ -98,7 +107,9 @@ if __name__ == "__main__":
         "weightedUniformStrings",
         "abbcccddddab [1, 7, 5, 4, 15, 4, 15,1]",
         str(
-            practices.weightedUniformStrings("abbcccddddab", [1, 7, 5, 4, 15, 4, 15, 1])
+            practices.weightedUniformStrings(
+                "abbcccddddab", [1, 7, 5, 4, 15, 4, 15, 1]
+            )
         ),
     )
     i = i + 1
@@ -110,7 +121,10 @@ if __name__ == "__main__":
     )
     i = i + 1
     table.add_row(
-        str(i), "funnyString", "['acxz','bcxz']", str(practices.funnyString("acxz"))
+        str(i),
+        "funnyString",
+        "['acxz','bcxz']",
+        str(practices.funnyString("acxz")),
     )
     i = i + 1
     table.add_row(
@@ -163,10 +177,15 @@ if __name__ == "__main__":
     )
     i = i + 1
     table.add_row(
-        str(i), "palindromeIndex", "aaab", str(practices.palindromeIndex("aaab"))
+        str(i),
+        "palindromeIndex",
+        "aaab",
+        str(practices.palindromeIndex("aaab")),
     )
     i = i + 1
-    table.add_row(str(i), "anagram", "aaabbb", str(practices.anagram("aaabbb")))
+    table.add_row(
+        str(i), "anagram", "aaabbb", str(practices.anagram("aaabbb"))
+    )
     i = i + 1
     table.add_row(
         str(i),
@@ -190,18 +209,28 @@ if __name__ == "__main__":
     )
     i = i + 1
     table.add_row(
-        str(i), "stringConstruction", "abab", str(practices.stringConstruction("abab"))
+        str(i),
+        "stringConstruction",
+        "abab",
+        str(practices.stringConstruction("abab")),
     )
     i = i + 1
     table.add_row(
-        str(i), "knightlOnAChessboard", "5", str(practices.knightlOnAChessboard(5))
+        str(i),
+        "knightlOnAChessboard",
+        "5",
+        str(practices.knightlOnAChessboard(5)),
     )
     i = i + 1
     table.add_row(
         str(i),
         "similarStrings",
         "8,'giggabaj',[1,1],[1,2],[1,3],[2,4]",
-        str(practices.similarStrings(8, "giggabaj", [[1, 1], [1, 2], [1, 3], [2, 4]])),
+        str(
+            practices.similarStrings(
+                8, "giggabaj", [[1, 1], [1, 2], [1, 3], [2, 4]]
+            )
+        ),
     )
     i = i + 1
     table.add_row(
@@ -214,11 +243,16 @@ if __name__ == "__main__":
     table.add_row(
         str(i),
         "missingNumbers",
-        "[203, 204, 205, 206, 207, 208, 203, 204, 205, 206],[203, 204, 204, 205, 206, 207, 205, 208, 203, 206, 205, 206, 204]",
+        "[203, 204, 205, 206, 207, 208, 203, 204, 205, 206],"
+        "[203, 204, 204, 205, 206, 207, 205, 208, 203, 206, "
+        "205, 206, 204]",
         str(
             practices.missingNumbers(
                 [203, 204, 205, 206, 207, 208, 203, 204, 205, 206],
-                [203, 204, 204, 205, 206, 207, 205, 208, 203, 206, 205, 206, 204],
+                [
+                    203, 204, 204, 205, 206, 207, 205, 208, 203,
+                    206, 205, 206, 204,
+                ],
             )
         ),
     )
@@ -227,11 +261,18 @@ if __name__ == "__main__":
         str(i),
         "beautifulPairs",
         "[3, 5, 7, 11, 5, 8],[5, 7, 11, 10, 5, 8]",
-        str(practices.beautifulPairs([3, 5, 7, 11, 5, 8], [5, 7, 11, 10, 5, 8])),
+        str(
+            practices.beautifulPairs(
+                [3, 5, 7, 11, 5, 8], [5, 7, 11, 10, 5, 8]
+            )
+        ),
     )
     i = i + 1
     table.add_row(
-        str(i), "balancedSums", "[1,2,3,3]", str(practices.balancedSums([1, 2, 3, 3]))
+        str(i),
+        "balancedSums",
+        "[1,2,3,3]",
+        str(practices.balancedSums([1, 2, 3, 3])),
     )
     i = i + 1
     table.add_row(
@@ -256,7 +297,11 @@ if __name__ == "__main__":
         str(i),
         "gridChallenge",
         "['ebacd', 'fghij', 'olman', 'trpqs', 'xywuv']",
-        str(practices.gridChallenge(["ebacd", "fghij", "olman", "trpqs", "xywuv"])),
+        str(
+            practices.gridChallenge(
+                ["ebacd", "fghij", "olman", "trpqs", "xywuv"]
+            )
+        ),
     )
     i = i + 1
     table.add_row(
@@ -264,7 +309,10 @@ if __name__ == "__main__":
         "luckBalance",
         "3,[[5, 1], [2, 1], [1, 1], [8, 1], [10, 0], [5, 0]]",
         str(
-            practices.luckBalance(3, [[5, 1], [2, 1], [1, 1], [8, 1], [10, 0], [5, 0]])
+            practices.luckBalance(
+                3,
+                [[5, 1], [2, 1], [1, 1], [8, 1], [10, 0], [5, 0]]
+            )
         ),
     )
     i = i + 1
@@ -275,7 +323,9 @@ if __name__ == "__main__":
         str(practices.maximumPerimeterTriangle([1, 1, 1, 2, 3, 5])),
     )
     i = i + 1
-    table.add_row(str(i), "decentNumber", "11", str(practices.decentNumber(11)))
+    table.add_row(
+        str(i), "decentNumber", "11", str(practices.decentNumber(11))
+    )
     i = i + 1
     table.add_row(
         str(i),
@@ -324,18 +374,31 @@ if __name__ == "__main__":
     )
     i = i + 1
     table.add_row(
-        str(i), "sumXor", "1000000000000000", str(practices.sumXor(1000000000000000))
+        str(i),
+        "sumXor",
+        "1000000000000000",
+        str(practices.sumXor(1000000000000000)),
     )
     i = i + 1
     table.add_row(str(i), "flippingBits", "1", str(practices.flippingBits(1)))
     i = i + 1
-    table.add_row(str(i), "gameOfStones", "14", str(practices.gameOfStones(14)))
+    table.add_row(
+        str(i), "gameOfStones", "14", str(practices.gameOfStones(14))
+    )
     i = i + 1
-    table.add_row(str(i), "towerBreakers", "2,100", str(practices.towerBreakers(2, 2)))
+    table.add_row(
+        str(i), "towerBreakers", "2,100",
+        str(practices.towerBreakers(2, 2))
+    )
     i = i + 1
-    table.add_row(str(i), "towerBreakers", "2,100", str(practices.towerBreakers(2, 2)))
+    table.add_row(
+        str(i), "towerBreakers", "2,100",
+        str(practices.towerBreakers(2, 2))
+    )
     i = i + 1
-    table.add_row(str(i), "nimGame", "[3,2,4]", str(practices.nimGame([3, 2, 4])))
+    table.add_row(
+        str(i), "nimGame", "[3,2,4]", str(practices.nimGame([3, 2, 4]))
+    )
     i = i + 1
     table.add_row(
         str(i),
@@ -344,7 +407,10 @@ if __name__ == "__main__":
         str(practices.highestValuePalindrome("11211", 5, 3)),
     )
     i = i + 1
-    table.add_row(str(i), "isValid", "aabbcccdd", str(practices.isValid("aabbcccdd")))
+    table.add_row(
+        str(i), "isValid", "aabbcccdd",
+        str(practices.isValid("aabbcccdd"))
+    )
     i = i + 1
     table.add_row(
         str(i),
@@ -366,7 +432,15 @@ if __name__ == "__main__":
         "3,['.......', '...O...', '....O..','.......', 'OO.....', 'OO.....']",
         str(
             practices.bomberMan(
-                3, [".......", "...O...", "....O..", ".......", "OO.....", "OO....."]
+                3,
+                [
+                    ".......",
+                    "...O...",
+                    "....O..",
+                    ".......",
+                    "OO.....",
+                    "OO....."
+                ]
             )
         ),
     )

@@ -1042,3 +1042,31 @@ def larrysArray(A):
             if A[i] > A[j]:
                 count += 1
     return "YES" if count % 2 == 0 else "NO"
+
+
+def surfaceArea(A):
+    if not A or not A[0]:
+        return 0
+
+    H = len(A)
+    W = len(A[0])
+    area = 0
+
+    for i in range(H):
+        for j in range(W):
+            # Top and bottom
+            if A[i][j] > 0:
+                area += 2  # top and bottom
+
+            # Check four directions
+            for di, dj in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+                ni, nj = i + di, j + dj
+                # If neighbor is out of bounds, all height is exposed
+                if ni < 0 or ni >= H or nj < 0 or nj >= W:
+                    area += A[i][j]
+                else:
+                    # Add exposed side (only if current is taller)
+                    if A[i][j] > A[ni][nj]:
+                        area += A[i][j] - A[ni][nj]
+
+    return area

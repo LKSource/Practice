@@ -458,6 +458,13 @@ if __name__ == "__main__":
         "[1, 6, 5, 2, 4, 3]",
         str(practices.larrysArray([1, 6, 5, 2, 4, 3])),
     )
+    i = i + 1
+    table.add_row(
+        str(i),
+        "surfaceArea",
+        "[[1, 3, 4], [2, 2, 3], [1, 2, 4]]",
+        str(practices.surfaceArea([[1, 3, 4], [2, 2, 3], [1, 2, 4]])),
+    )
 
     console.print(table)
 

@@ -471,7 +471,13 @@ if __name__ == "__main__":
         "10, 5",
         str(practices.absolutePermutation(10, 5)),
     )
-
+    table.add_row(
+        str(i),
+        "twoPluses",
+        "['BGBBGB', 'GGGGGG', 'BGBBGB', 'GGGGGG', 'BGBBGB', 'BGBBGB']",
+        str(practices.twoPluses(
+            ['BGBBGB', 'GGGGGG', 'BGBBGB', 'GGGGGG', 'BGBBGB', 'BGBBGB'])),
+    )
     console.print(table)
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/

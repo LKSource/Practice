@@ -1,16 +1,25 @@
-# from itertools import permutations
-
-def larrysArray(A):
-    count = 0
-    for i in range(len(A)-1):
-        for j in range(i+1, len(A)):
-            if A[i] > A[j]:
-                count += 1
-    return "YES" if count % 2 == 0 else "NO"
+from itertools import permutations
 
 
-A = [[3, 1, 2], [1, 3, 4, 2], [1, 2, 3, 5, 4], [1, 6, 5, 2, 4, 3]]
+def absolutePermutation(n, k):
+    # Write your code here
+    p = list(range(1, n + 1))
+    P = list(permutations(p, n))
+    for v in P:
+        check = True
+        # print(v)
+        for i in range(len(v)):
+            # print(v[i], v[i] - (i+1))
+            if abs(v[i] - (i+1)) != k:
+                check = False
+                break
+        if check:
+            return v
+    return -1
+
+
+A = [[2, 1], [3, 0], [3, 2]]
 # A = [[1, 6, 5, 2, 4, 3]]
 
 for i in A:
-    print(larrysArray(i))
+    print(absolutePermutation(i[0], i[1]))

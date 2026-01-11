@@ -465,6 +465,12 @@ if __name__ == "__main__":
         "[[1, 3, 4], [2, 2, 3], [1, 2, 4]]",
         str(practices.surfaceArea([[1, 3, 4], [2, 2, 3], [1, 2, 4]])),
     )
+    table.add_row(
+        str(i),
+        "absolutePermutation",
+        "10, 5",
+        str(practices.absolutePermutation(10, 5)),
+    )
 
     console.print(table)
 

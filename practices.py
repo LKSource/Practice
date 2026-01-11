@@ -1070,3 +1070,19 @@ def surfaceArea(A):
                         area += A[i][j] - A[ni][nj]
 
     return area
+
+
+def absolutePermutation(n, k):
+    if k == 0:
+        return list(range(1, n + 1))
+    if n % (2 * k) != 0:
+        return [-1]
+    result = [0] * n
+    for i in range(n):
+        # i is 0-based; position is i+1
+        pos = i + 1
+        if (pos - 1) // k % 2 == 0:
+            result[i] = pos + k
+        else:
+            result[i] = pos - k
+    return result

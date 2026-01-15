@@ -1,68 +1,36 @@
-def twoPluses(grid):
-    H = len(grid)
-    W = len(grid[0])
-    # Convert to binary: 1 for 'G', 0 for 'B'
-    mat = [[1 if ch == "G" else 0 for ch in row] for row in grid]
-    # For each cell, compute max arm length (k)
-    # k = 0 -> only center; k = 1 -> center + 1 in each direction, etc.
-    max_k = [[0] * W for _ in range(H)]
-    for r in range(H):
-        for c in range(W):
-            if mat[r][c] == 0:
-                max_k[r][c] = -1  # invalid
-                continue
-            k = 0
-            # Try to expand arms
-            while True:
-                # Check if we can extend to arm length k+1
-                if (
-                    r - k - 1 >= 0
-                    and r + k + 1 < H
-                    and c - k - 1 >= 0
-                    and c + k + 1 < W
-                    and mat[r - k - 1][c] == 1
-                    and mat[r + k + 1][c] == 1
-                    and mat[r][c - k - 1] == 1
-                    and mat[r][c + k + 1] == 1
-                ):
-                    k += 1
-                else:
-                    break
-            max_k[r][c] = k
-
-    # Build list of all pluses: (area, set_of_cells)
-    pluses = []
-    for r in range(H):
-        for c in range(W):
-            if max_k[r][c] >= 0:
-                # For each possible arm length from 0 up to max_k[r][c]
-                # Because a plus with max arm k can also be used as smaller
-                # plus!
-                for k in range(0, max_k[r][c] + 1):
-                    area = 1 + 4 * k
-                    cells = {(r, c)}
-                    for d in range(1, k + 1):
-                        cells.add((r - d, c))
-                        cells.add((r + d, c))
-                        cells.add((r, c - d))
-                        cells.add((r, c + d))
-                    pluses.append((area, cells))
-
-    # Now find max product of two non-overlapping pluses
-    max_product = 0
-    n = len(pluses)
-    for i in range(n):
-        for j in range(i + 1, n):
-            area1, cells1 = pluses[i]
-            area2, cells2 = pluses[j]
-            if cells1.isdisjoint(cells2):
-                max_product = max(max_product, area1 * area2)
-
-    return max_product
+def issorted(arr):
+    return all(arr[i] <= arr[i + 1] for i in range(len(arr) - 1))
 
 
-g = ["GGGGGG", "GBBBGB", "GGGGGG", "GGBBGB", "GGGGGG"]
+def almostSorted(arr):
+    # Write your code here
+    print("Array:", arr)
+    if issorted(arr):
+        print("yes")
+        return
 
-g1 = ["BGBBGB", "GGGGGG", "BGBBGB", "GGGGGG", "BGBBGB", "BGBBGB"]
+    for i in range(len(arr)):
+        for j in range(i + 1, len(arr)):
+            arr[i], arr[j] = arr[j], arr[i]
+            if issorted(arr):
+                print(f"yes\nswap {i + 1} {j + 1}")
+                return
+            arr[i], arr[j] = arr[j], arr[i]
+    
+    for i in range(len(arr)):
+        for j in range(i + 1, len(arr)):
+            arr[i:j + 1] = reversed(arr[i:j + 1])
+            if issorted(arr):
+                print(f"yes\nreverse {i + 1} {j + 1}")
+                return
+            arr[i:j + 1] = reversed(arr[i:j + 1])        
 
-print(twoPluses(g))
+    print("no")
+
+a = [[4, 2], [3, 1, 2], [1, 5, 3, 4, 2, 6], [1, 2, 3, 4, 5],
+     [1, 3, 2, 4, 5, 6], [1, 5, 4, 3, 2, 6]]
+for i in a:
+    almostSorted(i)
+b = [1, 2, 3, 5, 4, 6]
+b[1:4] = reversed(b[1:4])
+print(b)

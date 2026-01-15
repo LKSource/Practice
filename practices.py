@@ -1149,3 +1149,29 @@ def twoPluses(grid):
                 max_product = max(max_product, area1 * area2)
 
     return max_product
+
+
+def almostSorted(arr):
+    n = len(arr)
+    sorted_arr = sorted(arr)
+    left = None
+    right = None
+    for i in range(n):
+        if arr[i] != sorted_arr[i]:
+            if left is None:
+                left = i
+            right = i
+    if left is None:
+        print("yes")
+        return
+    arr[left], arr[right] = arr[right], arr[left]
+    if arr == sorted_arr:
+        print(f"yes\nswap {left + 1} {right + 1}")
+        return
+    # Swap back
+    arr[left], arr[right] = arr[right], arr[left]
+    arr[left:right+1] = arr[left:right+1][::-1]
+    if arr == sorted_arr:
+        print(f"yes\nreverse {left + 1} {right + 1}")
+        return
+    print("no")

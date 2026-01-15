@@ -478,6 +478,13 @@ if __name__ == "__main__":
         str(practices.twoPluses(
             ['BGBBGB', 'GGGGGG', 'BGBBGB', 'GGGGGG', 'BGBBGB', 'BGBBGB'])),
     )
+    table.add_row(
+        str(i),
+        "almostSorted",
+        "[1, 5, 4, 3, 2, 6]",
+        str(practices.almostSorted(
+            [1, 5, 4, 3, 2, 6])),
+    )
     console.print(table)
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/

@@ -492,6 +492,13 @@ if __name__ == "__main__":
         str(practices.matrixRotation(
             [[1, 2, 3, 4], [12, 1, 2, 5], [11, 4, 3, 6], [10, 9, 8, 7]], 2)),
     )
+    table.add_row(
+        str(i),
+        "anotherMinimaxProblem",
+        "[1, 2, 3, 4]",
+        str(practices.anotherMinimaxProblem(
+            [1, 2, 3, 4])),
+    )
     console.print(table)
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/

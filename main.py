@@ -485,6 +485,13 @@ if __name__ == "__main__":
         str(practices.almostSorted(
             [1, 5, 4, 3, 2, 6])),
     )
+    table.add_row(
+        str(i),
+        "matrixRotation",
+        "[[1, 2, 3, 4],[12, 1, 2, 5],[11, 4, 3, 6],[10, 9, 8, 7]]",
+        str(practices.matrixRotation(
+            [[1, 2, 3, 4], [12, 1, 2, 5], [11, 4, 3, 6], [10, 9, 8, 7]], 2)),
+    )
     console.print(table)
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/

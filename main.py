@@ -465,12 +465,14 @@ if __name__ == "__main__":
         "[[1, 3, 4], [2, 2, 3], [1, 2, 4]]",
         str(practices.surfaceArea([[1, 3, 4], [2, 2, 3], [1, 2, 4]])),
     )
+    i = i + 1    
     table.add_row(
         str(i),
         "absolutePermutation",
         "10, 5",
         str(practices.absolutePermutation(10, 5)),
     )
+    i = i + 1    
     table.add_row(
         str(i),
         "twoPluses",
@@ -478,6 +480,7 @@ if __name__ == "__main__":
         str(practices.twoPluses(
             ['BGBBGB', 'GGGGGG', 'BGBBGB', 'GGGGGG', 'BGBBGB', 'BGBBGB'])),
     )
+    i = i + 1    
     table.add_row(
         str(i),
         "almostSorted",
@@ -485,6 +488,7 @@ if __name__ == "__main__":
         str(practices.almostSorted(
             [1, 5, 4, 3, 2, 6])),
     )
+    i = i + 1    
     table.add_row(
         str(i),
         "matrixRotation",
@@ -492,6 +496,7 @@ if __name__ == "__main__":
         str(practices.matrixRotation(
             [[1, 2, 3, 4], [12, 1, 2, 5], [11, 4, 3, 6], [10, 9, 8, 7]], 2)),
     )
+    i = i + 1    
     table.add_row(
         str(i),
         "anotherMinimaxProblem",

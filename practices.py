@@ -1280,3 +1280,18 @@ def anotherMinimaxProblem(a):
             lo = mid + 1
 
     return ans
+
+
+def countSort(arr):
+    # Write your code here
+    result = []
+    for i in range(len(arr)//2):
+        arr[i][1] = '-'
+    maxint = max([int(arr[i][0]) for i in range(len(arr))])
+    for i in range(maxint+1):
+        temp = []
+        for j in range(len(arr)):
+            if int(arr[j][0]) == i:
+                temp.append(arr[j][1])
+        result.extend(temp)
+    return result

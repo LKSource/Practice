@@ -504,6 +504,20 @@ if __name__ == "__main__":
         str(practices.anotherMinimaxProblem(
             [1, 2, 3, 4])),
     )
+    i += 1
+    data_input = [
+        [0, 'ab'], [6, 'cd'], [0, 'ef'], [6, 'gh'], [4, 'ij'],
+        [0, 'ab'], [6, 'cd'], [0, 'ef'], [6, 'gh'], [0, 'ij'],
+        [4, 'that'], [3, 'be'], [0, 'to'], [1, 'be'], [5, 'question'],
+        [1, 'or'], [2, 'not'], [4, 'is'], [2, 'to'], [4, 'the']
+    ]
+    result = practices.countSort(data_input)
+    table.add_row(
+        str(i),
+        "countSort",
+        str(data_input),
+        str(result)
+    )
     console.print(table)
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/

@@ -1298,3 +1298,24 @@ def countSort(arr):
         buckets[key].append(val)
     result = ' '.join(val for bucket in buckets for val in bucket)
     return result
+
+
+def misereNim(s):
+    all_1s = True
+    for i in s:
+        if i > 1:
+            all_1s = False
+            break
+    if all_1s:
+        if len(s) % 2 == 0:
+            return 'First'
+        else:
+            return 'Second'
+    else:
+        xor_sum = 0
+        for i in s:
+            xor_sum ^= i
+        if xor_sum == 0:
+            return 'Second'
+        else:
+            return 'First'

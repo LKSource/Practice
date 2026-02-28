@@ -518,6 +518,14 @@ if __name__ == "__main__":
         str(data_input),
         str(result)
     )
+    i = i + 1
+    table.add_row(
+        str(i),
+        "misereNim",
+        "[2, 1, 3]",
+        str(practices.misereNim(
+            [2, 1, 3])),
+    )
     console.print(table)
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/

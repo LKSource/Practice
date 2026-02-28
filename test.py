@@ -1,25 +1,51 @@
-def countSort(arr):
-    # Write your code here
-    n = len(arr)
-    half = n // 2
-    max_key = 0
-    for i in range(n):
-        key = int(arr[i][0])
-        if key > max_key:
-            max_key = key
-    buckets = [[] for _ in range(max_key + 1)]
-    for idx in range(n):
-        key = int(arr[idx][0])
-        val = '-' if idx < half else arr[idx][1]
-        buckets[key].append(val)
-    result = ' '.join(val for bucket in buckets for val in bucket)
-    return result
+#!/bin/python3
 
+import math
+import os
+import random
+import re
+import sys
 
-data_input = [
-    [0, 'ab'], [6, 'cd'], [0, 'ef'], [6, 'gh'], [4, 'ij'],
-    [0, 'ab'], [6, 'cd'], [0, 'ef'], [6, 'gh'], [0, 'ij'],
-    [4, 'that'], [3, 'be'], [0, 'to'], [1, 'be'], [5, 'question'],
-    [1, 'or'], [2, 'not'], [4, 'is'], [2, 'to'], [4, 'the']
-]
-print(countSort(data_input))
+def count_overlapping(text, pattern):
+    if not pattern:
+        return 0
+    count = 0
+    start = 0
+    while True:
+        pos = text.find(pattern, start)
+        if pos == -1:
+            break
+        count += 1
+        start = pos + 1  # Move by 1 for overlapping
+    return count
+
+if __name__ == '__main__':
+    #n = int(input().strip())
+
+    genes = "a b c aa d b".split()
+
+    health = list(map(int, "1 2 3 4 5 6".split()))
+
+    s = ["1 5 caaab", "0 4 xyz", "2 4 bcdybc"].copy()
+    rslt = []
+
+    for s_itr in range(3):
+        first_multiple_input = s[s_itr].split()
+
+        first = int(first_multiple_input[0])
+
+        last = int(first_multiple_input[1])
+
+        d = first_multiple_input[2]
+        print(first, last, d)
+        total = 0
+        for i in range(first, last + 1):
+            gene = genes[i]
+            # Skip empty genes (though unlikely)
+            if not gene:
+                continue
+            cnt = count_overlapping(d, gene)
+            total += cnt * health[i]
+        rslt.append(total)
+    
+    print(min(rslt), max(rslt))

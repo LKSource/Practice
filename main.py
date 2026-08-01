@@ -526,6 +526,16 @@ if __name__ == "__main__":
         str(practices.misereNim(
             [2, 1, 3])),
     )
+    i += 1
+    expenditure = [2, 3, 4, 2, 3, 6, 8, 4, 5]
+    d = 5
+    result = practices.activityNotifications(expenditure, d)
+    table.add_row(
+        str(i),
+        "activityNotifications",
+        str(expenditure),
+        str(result)
+    )
     console.print(table)
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/

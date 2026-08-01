@@ -1,63 +1,82 @@
-import pandas as pd
+#!/bin/python3
 
-# Creating the data for the Excel sheet
-data = {
-    "Room / Area": [
-        "Hall-1 (Double Height)", "Hall-1 (Double Height)", "Hall-1 (Double Height)",
-        "Hall-2 (Media Lounge)", "Hall-2 (Media Lounge)", "Hall-2 (Media Lounge)",
-        "Master Bedroom", "Master Bedroom", "Master Bedroom",
-        "Kitchen", "Kitchen", "Kitchen",
-        "A. Toilet", "A. Toilet",
-        "Pooja Room", "Utility Area"
-    ],
-    "Component Type": [
-        "Fans", "Primary Lighting", "Accent Lighting",
-        "Fans", "TV Hub", "Lighting",
-        "Fans", "Lighting", "Switch Points",
-        "Exhaust/Chimney", "Lighting", "Power Points",
-        "Lighting", "Power Points",
-        "Lighting", "Power Points"
-    ],
-    "Positioning & Recommendations": [
-        "Wall-mounted fans at 8.5ft height on side walls (Staggered)",
-        "Powerful wall-washers/up-lighters at 15ft height pointing up",
-        "Grand Chandelier hanging to 10ft level; Wall sconces at 7.5ft",
-        "One central ceiling fan with 12-inch down-rod",
-        "Pooja outer wall: 4x 6A sockets, 1x 15A, hidden conduit for cables",
-        "Dimmable spotlights + LED strip behind TV (Bias lighting)",
-        "One central fan (aligned with lower 1/3 of bed)",
-        "4x Recessed downlights + 2x Bedside reading lamps",
-        "2-Way control (Entrance + Bedside); AC point at 7.5ft height",
-        "Exhaust fan at window or Chimney point at 7ft above hob",
-        "Moisture-proof LED batten + Under-cabinet LED strips for counter",
-        "Dedicated 15A points for Fridge, Microwave, and Mixer",
-        "Waterproof LED ceiling light + Mirror light above washbasin",
-        "15A Geyser point at 7.5ft height (away from shower)",
-        "Low-wattage warm focus light + Socket for electric lamps",
-        "15A point for Washing Machine + High visibility LED batten"
-    ],
-    "Mounting Height (From Floor)": [
-        "8.5 Feet", "15 Feet", "7.5 - 10 Feet",
-        "10 Feet", "2 - 4 Feet", "Ceiling (11ft)",
-        "10 Feet", "Ceiling (11ft)", "1.5 - 4 Feet",
-        "7 Feet", "Cabinet level / Ceiling", "3.5 Feet",
-        "Ceiling (11ft)", "7.5 Feet",
-        "7 Feet", "4 Feet"
-    ]
-}
+import math
+import os
+import random
+import re
+import sys
+import time
 
-df = pd.DataFrame(data)
+#
+# Complete the 'activityNotifications' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts following parameters:
+#  1. INTEGER_ARRAY expenditure
+#  2. INTEGER d
+#
 
-# Save to Excel with formatting
-with pd.ExcelWriter("electrical_design_layout_v1.xlsx", engine='openpyxl') as writer:
-    df.to_excel(writer, index=False, sheet_name='Electrical Recommendations')
+
+def activityNotifications(expenditure, d):
+    # Write your code here
+    if len(expenditure) <= d:
+        return 0
+        
+    notifications = 0
+    # The problem specifies max expenditure is 200 (adjust if different)
+    MAX_EXPENDITURE = 201 
+    count = [0] * MAX_EXPENDITURE
     
-    # Accessing the openpyxl workbook and worksheet objects
-    workbook  = writer.book
-    worksheet = writer.sheets['Electrical Recommendations']
+    # Initialize the frequency array for the first 'd' elements
+    for i in range(d):
+        count[expenditure[i]] += 1
+        
+    # Helper function to find 2x median from the frequency array
+    def get_double_median(count, d):
+        if d % 2 != 0:
+            # Odd number of elements: find the middle element
+            target = d // 2 + 1
+            current_sum = 0
+            for val in range(MAX_EXPENDITURE):
+                current_sum += count[val]
+                if current_sum >= target:
+                    return val * 2
+        else:
+            # Even number of elements: find the average of two middle elements
+            target1 = d // 2
+            target2 = target1 + 1
+            m1 = m2 = None
+            current_sum = 0
+            for val in range(MAX_EXPENDITURE):
+                current_sum += count[val]
+                if m1 is None and current_sum >= target1:
+                    m1 = val
+                if current_sum >= target2:
+                    m2 = val
+                    return m1 + m2
+                    
+    # Slide the window across the remaining elements
+    for i in range(d, len(expenditure)):
+        current_val = expenditure[i]
+        
+        # Check for notification condition
+        if current_val >= get_double_median(count, d):
+            notifications += 1
+            
+        # Update sliding window: add trailing element, remove leading element
+        count[current_val] += 1
+        count[expenditure[i - d]] -= 1
+        
+    return notifications
+
     
-    # Adjusting column widths for readability
-    for i, col in enumerate(df.columns):
-        column_len = df[col].astype(str).str.len().max()
-        column_len = max(column_len, len(col)) + 5
-        worksheet.column_dimensions[chr(65+i)].width = column_len
+if __name__ == '__main__':
+    expenditure = [2, 3, 4, 2, 3, 6, 8, 4, 5]
+    d = 5
+    start_time = time.perf_counter()
+    result = activityNotifications(expenditure, d)
+    end_time = time.perf_counter()
+    execution_time = end_time - start_time
+    print(f"Function executed in {execution_time:.6f} seconds")
+    print(result)
+
